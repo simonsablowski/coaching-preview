@@ -1,0 +1,129 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="Content-Language" content="en"/>
+		<title>Coaching Preview</title>
+		<script type="text/javascript" src="js/jquery.1.6.2.js"></script>
+		<script type="text/javascript" src="js/jquery.json-2.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.swfobject.1-1-1.min.js"></script>
+		<script type="text/javascript" src="js/player.js"></script>
+		<script type="text/javascript" src="js/generator.js"></script>
+		<link type="text/css" href="css/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="column">
+			<fieldset>
+				<legend>
+					Configuration
+				</legend>
+				<form>
+					<dl>
+						<dt>
+							Type
+						</dt>
+						<dd>
+							<select id="type" name="type">
+								<option value="AddValue">AddValue</option>
+								<option value="BulletPoints">BulletPoints</option>
+								<option value="Buy">Buy</option>
+								<option value="Checkboxes">Checkboxes</option>
+								<option value="Coaching">Coaching</option>
+								<option value="DieterCategory">DieterCategory</option>
+								<option value="DocumentDownload">DocumentDownload</option>
+								<option value="Dropdown">Dropdown</option>
+								<option value="EnergyDemand">EnergyDemand</option>
+								<option value="Evaluation">Evaluation</option>
+								<option value="Group">Group</option>
+								<option value="ImageStack">ImageStack</option>
+								<option value="Keywords">Keywords</option>
+								<option value="LinkGroup">LinkGroup</option>
+								<option value="List">List</option>
+								<option value="ListView">ListView</option>
+								<option value="Options">Options</option>
+								<option value="Register">Register</option>
+								<option value="SetValue">SetValue</option>
+								<option value="Text">Text</option>
+								<option value="TextArea">TextArea</option>
+								<option value="TextInput">TextInput</option>
+								<option value="Video">Video</option>
+							</select>
+						</dd>
+						<dt>
+							Key
+						</dt>
+						<dd>
+							<input id="key" type="text" name="key" value=""/>
+						</dd>
+						<dt>
+							Title
+						</dt>
+						<dd>
+							<input id="title" type="text" name="title" value=""/>
+						</dd>
+						<dt>
+							Description
+						</dt>
+						<dd>
+							<textarea id="description" name="description"></textarea>
+						</dd>
+						<dt>
+							Properties
+						</dt>
+						<dd>
+							<textarea id="properties" name="properties">{"events":[],"video":{}}</textarea>
+						</dd>
+					</dl>
+					<p>
+						<input id="generate" type="button" value="Generate"/>
+					</p>
+				</form>
+			</fieldset>
+			<fieldset>
+				<legend>
+					BizAgi
+				</legend>
+				<form>
+					<dl>
+						<dt>
+							Description
+						</dt>
+						<dd>
+							<textarea id="bizagi" name="bizagi"></textarea>
+						</dd>
+					</dl>
+					<p>
+						<input id="convert" type="button" value="Convert"/>
+					</p>
+				</form>
+			</fieldset>
+		</div>
+		<div class="column">
+			<fieldset>
+				<legend>
+					Results
+				</legend>
+				<form>
+					<dl>
+						<dt>
+							Object
+						</dt>
+						<dd>
+							<textarea id="object" name="object" readonly="readonly"></textarea>
+						</dd>
+					</dl>
+					<p>
+						<input id="test" type="button" value="Test"/>
+					</p>
+				</form>
+			</fieldset>
+			<fieldset>
+				<legend>
+					Preview
+				</legend>
+				<p>
+					<div id="preview"><!-- --></div>
+				</p>
+			</fieldset>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+html {
+	font-family: arial, sans-serif;
+}
+
+fieldset {
+	padding-bottom: 0;
+}
+
+form {
+	margin: 0;
+}
+
+dl, dt, dd, p {
+	margin: 10px;
+	padding: 0;
+}
+
+input, select, textarea {
+	width: 300px;
+}
+
+textarea {
+	height: 100px;
+}
+
+input[type="submit"], input[type="button"] {
+	background-color: #ccc;
+	border: 1px solid #000;
+	margin: 10px;
+	width: auto;
+}
+
+.column {
+	float: left;
+	width: 30%;
+}
