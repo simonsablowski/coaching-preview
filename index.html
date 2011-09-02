@@ -17,12 +17,14 @@
 					Configuration
 				</legend>
 				<form>
+					<input id="properties" type="hidden" name="properties"/>
 					<dl>
 						<dt>
 							Type
 						</dt>
 						<dd>
 							<select id="type" name="type">
+								<option value=""></option>
 								<option value="AddValue">AddValue</option>
 								<option value="BulletPoints">BulletPoints</option>
 								<option value="Buy">Buy</option>
@@ -69,30 +71,38 @@
 						<dt>
 							Properties
 						</dt>
-						<dd>
-							<textarea id="properties" name="properties">{"events":[],"video":{}}</textarea>
+						<dd id="configuration">
+							Please select the object type.
 						</dd>
+						<div id="BulletPoints" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Element
+										</dt>
+										<dd>
+											<input type="text" name="properties[elements][][element]" value=""/>
+										</dd>
+										<dt>
+											Second
+										</dt>
+										<dd>
+											<input type="text" name="properties[elements][][second]" value=""/>
+										</dd>
+									</dl>
+									<p>
+										<a class="remove" href="#">Remove</a>
+									</p>
+								</li>
+							</ul>
+							<p>
+								<a class="add" href="#">Add</a>
+							</p>
+						</div>
 					</dl>
 					<p>
-						<input id="generate" type="button" value="Generate"/>
-					</p>
-				</form>
-			</fieldset>
-			<fieldset>
-				<legend>
-					BizAgi
-				</legend>
-				<form>
-					<dl>
-						<dt>
-							Description
-						</dt>
-						<dd>
-							<textarea id="bizagi" name="bizagi"></textarea>
-						</dd>
-					</dl>
-					<p>
-						<input id="convert" type="button" value="Convert"/>
+						<input id="test" type="button" value="Preview"/>
 					</p>
 				</form>
 			</fieldset>
@@ -100,33 +110,35 @@
 		<div class="column">
 			<fieldset>
 				<legend>
-					Results
-				</legend>
-				<form>
-					<dl>
-						<dt>
-							Object
-						</dt>
-						<dd>
-							<textarea id="object" name="object" readonly="readonly"></textarea>
-						</dd>
-					</dl>
-					<p>
-						<input id="test" type="button" value="Preview"/>
-					</p>
-				</form>
-			</fieldset>
-			<fieldset>
-				<legend>
 					Preview
 				</legend>
-				<p>
-					<div id="preview">
-						<p>
-							Please press the button 'Preview' above.
-						</p>
-					</div>
-				</p>
+				<div id="preview">
+					<p>
+						Please press the button 'Preview'.
+					</p>
+				</div>
+			</fieldset>
+			<fieldset style="display: none;">
+				<legend>
+					Modeling Tool
+				</legend>
+				<form>
+					<input id="object" type="hidden" name="object"/>
+					<dl>
+						<dt>
+							Name
+						</dt>
+						<dd>
+							<input id="modelingName" type="text" name="modelingName" value=""/>
+						</dd>
+						<dt>
+							Description
+						</dt>
+						<dd>
+							<textarea id="modelingDescription" name="modelingDescription"></textarea>
+						</dd>
+					</dl>
+				</form>
 			</fieldset>
 		</div>
 	</body>
