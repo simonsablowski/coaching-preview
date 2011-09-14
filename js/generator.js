@@ -44,9 +44,20 @@ function generate() {
 	object.key = $('#key').val() || undefined;
 	object.title = $('#title').val();
 	object.description = $('#description').val();
+	object.properties = {};
 	
-	$('#configuration *[name^="properties"]').each(function(index, element) {
-		alert($(element).attr('name') + ' = ' + $(element).val());
+	$('#configuration ul li').each(function(i, row) {
+		var properties = {};
+		$('#configuration ul li *[rel^="{"]').each(function(index, element) {
+			properties = $.extend(true, properties, $.evalJSON($.sprintf($(element).attr('rel'), $(element).val())));
+			/*
+			 * TODO:
+			 * there is a problem with arrays not being merged but replaced
+			 * $.merge(first, second) would do the trick, but therefor we would
+			 * need to iterate through all the properties and check the object types
+			 */
+		});
+		object.properties = $.extend({}, object.properties, properties);
 	});
 	
 	$('#object').val($.toJSON(object));

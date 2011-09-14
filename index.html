@@ -6,6 +6,7 @@
 		<script type="text/javascript" src="js/jquery.1.6.2.js"></script>
 		<script type="text/javascript" src="js/jquery.json-2.2.min.js"></script>
 		<script type="text/javascript" src="js/jquery.swfobject.1-1-1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.sprintf.js"></script>
 		<script type="text/javascript" src="js/player.js"></script>
 		<script type="text/javascript" src="js/generator.js"></script>
 		<link type="text/css" href="css/style.css" rel="stylesheet"/>
@@ -25,29 +26,33 @@
 						<dd>
 							<select id="type" name="type">
 								<option value=""></option>
-								<option value="AddValue">AddValue</option>
-								<option value="BulletPoints">BulletPoints</option>
-								<option value="Buy">Buy</option>
-								<option value="Checkboxes">Checkboxes</option>
-								<option value="Coaching">Coaching</option>
-								<option value="DieterCategory">DieterCategory</option>
-								<option value="DocumentDownload">DocumentDownload</option>
-								<option value="Dropdown">Dropdown</option>
-								<option value="EnergyDemand">EnergyDemand</option>
-								<option value="Evaluation">Evaluation</option>
-								<option value="Group">Group</option>
-								<option value="ImageStack">ImageStack</option>
-								<option value="Keywords">Keywords</option>
-								<option value="LinkGroup">LinkGroup</option>
-								<option value="List">List</option>
-								<option value="ListView">ListView</option>
-								<option value="Options">Options</option>
-								<option value="Register">Register</option>
-								<option value="SetValue">SetValue</option>
-								<option value="Text">Text</option>
-								<option value="TextArea">TextArea</option>
-								<option value="TextInput">TextInput</option>
-								<option value="Video">Video</option>
+								<optgroup label="Visible types">
+									<option value="BulletPoints">BulletPoints</option>
+									<option value="Checkboxes">Checkboxes</option>
+									<option value="DieterCategory">DieterCategory</option>
+									<option value="DocumentDownload">DocumentDownload</option>
+									<option value="Dropdown">Dropdown</option>
+									<option value="EnergyDemand">EnergyDemand</option>
+									<option value="Evaluation">Evaluation</option>
+									<option value="ImageStack">ImageStack</option>
+									<option value="Keywords">Keywords</option>
+									<!--<option value="LinkGroup">LinkGroup</option>-->
+									<option value="List">List</option>
+									<option value="ListView">ListView</option>
+									<option value="Options">Options</option>
+									<option value="Text">Text</option>
+									<option value="TextArea">TextArea</option>
+									<option value="TextInput">TextInput</option>
+									<option value="Video">Video</option>
+								</optgroup>
+								<optgroup label="Invisible types">
+									<option value="AddValue">AddValue</option>
+									<option value="Buy">Buy</option>
+									<option value="Coaching">Coaching</option>
+									<option value="Group">Group</option>
+									<option value="Register">Register</option>
+									<option value="SetValue">SetValue</option>
+								</optgroup>
 							</select>
 						</dd>
 						<dt>
@@ -68,12 +73,33 @@
 						<dd>
 							<textarea id="description" name="description"></textarea>
 						</dd>
+						<div class="separator"></div>
 						<dt>
 							Properties
 						</dt>
 						<dd id="configuration">
 							Please select the object type.
 						</dd>
+						<div id="AddValue" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Value
+										</dt>
+										<dd>
+											<input type="text" rel='{"values":["%s"]}' value=""/>
+										</dd>
+									</dl>
+									<p>
+										<a class="remove" href="#" title="Remove">Remove</a>
+									</p>
+								</li>
+							</ul>
+							<p>
+								<a class="add" href="#" title="Add another">Add</a>
+							</p>
+						</div>
 						<div id="BulletPoints" style="display: none;">
 							<ul class="list">
 								<li>
@@ -82,22 +108,316 @@
 											Element
 										</dt>
 										<dd>
-											<input type="text" name="properties[elements][][element]" value=""/>
+											<input type="text" rel='{"elements":[{"element":"%s"}]}' value=""/>
 										</dd>
 										<dt>
 											Second
 										</dt>
 										<dd>
-											<input type="text" name="properties[elements][][second]" value=""/>
+											<input type="text" rel='{"elements":[{"second":%d}]}' value=""/>
 										</dd>
 									</dl>
 									<p>
-										<a class="remove" href="#">Remove</a>
+										<a class="remove" href="#" title="Remove">Remove</a>
 									</p>
 								</li>
 							</ul>
 							<p>
-								<a class="add" href="#">Add</a>
+								<a class="add" href="#" title="Add another">Add</a>
+							</p>
+						</div>
+						<div id="Buy" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Key
+										</dt>
+										<dd>
+											<input type="text" rel='{"key":"%s"}' value=""/>
+										</dd>
+									</dl>
+								</li>
+							</ul>
+						</div>
+						<div id="Coaching" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Key
+										</dt>
+										<dd>
+											<input type="text" rel='{"key":"%s"}' value=""/>
+										</dd>
+									</dl>
+								</li>
+							</ul>
+						</div>
+						<div id="Checkboxes" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Item
+										</dt>
+										<dd>
+											<input type="text" rel='{"items":["%s"]}' value=""/>
+										</dd>
+									</dl>
+									<p>
+										<a class="remove" href="#" title="Remove">Remove</a>
+									</p>
+								</li>
+							</ul>
+							<p>
+								<a class="add" href="#" title="Add another">Add</a>
+							</p>
+						</div>
+						<div id="DieterCategory" style="display: none;">
+							<p>
+								No further configuration necessary.
+							</p>
+						</div>
+						<div id="DocumentDownload" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Name
+										</dt>
+										<dd>
+											<input type="text" rel='{"documents":[{"name":"%s"}]}' value=""/>
+										</dd>
+										<dt>
+											File
+										</dt>
+										<dd>
+											<input type="text" rel='{"documents":[{"file":"%s"}]}' value=""/>
+										</dd>
+									</dl>
+									<p>
+										<a class="remove" href="#" title="Remove">Remove</a>
+									</p>
+								</li>
+							</ul>
+							<p>
+								<a class="add" href="#" title="Add another">Add</a>
+							</p>
+						</div>
+						<div id="Dropdown" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Item
+										</dt>
+										<dd>
+											<input type="text" rel='{"items":["%s"]}' value=""/>
+										</dd>
+									</dl>
+									<p>
+										<a class="remove" href="#" title="Remove">Remove</a>
+									</p>
+								</li>
+							</ul>
+							<p>
+								<a class="add" href="#" title="Add another">Add</a>
+							</p>
+						</div>
+						<div id="EnergyDemand" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Weight <em>(reference)</em>
+										</dt>
+										<dd>
+											<input type="text" rel='{"weight":"#%s"}' value=""/>
+										</dd>
+										<dt>
+											Height <em>(reference)</em>
+										</dt>
+										<dd>
+											<input type="text" rel='{"height":"#%s"}' value=""/>
+										</dd>
+									</dl>
+									<p>
+										<a class="remove" href="#" title="Remove">Remove</a>
+									</p>
+								</li>
+							</ul>
+							<p>
+								<a class="add" href="#" title="Add another">Add</a>
+							</p>
+						</div>
+						<div id="Evaluation" style="display: none;">
+							<p>
+								...
+							</p>
+						</div>
+						<div id="Group" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Count
+										</dt>
+										<dd>
+											<input type="text" rel='{"count":%d}' value=""/>
+										</dd>
+									</dl>
+								</li>
+							</ul>
+						</div>
+						<div id="ImageStack" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Element
+										</dt>
+										<dd>
+											<input type="text" rel='{"elements":[{"element":"%s"}]}' value=""/>
+										</dd>
+										<dt>
+											Second
+										</dt>
+										<dd>
+											<input type="text" rel='{"elements":[{"second":%d}]}' value=""/>
+										</dd>
+									</dl>
+									<p>
+										<a class="remove" href="#" title="Remove">Remove</a>
+									</p>
+								</li>
+							</ul>
+							<p>
+								<a class="add" href="#" title="Add another">Add</a>
+							</p>
+						</div>
+						<div id="Keywords" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Element
+										</dt>
+										<dd>
+											<input type="text" rel='{"elements":[{"element":"%s"}]}' value=""/>
+										</dd>
+										<dt>
+											Second
+										</dt>
+										<dd>
+											<input type="text" rel='{"elements":[{"second":%d}]}' value=""/>
+										</dd>
+									</dl>
+									<p>
+										<a class="remove" href="#" title="Remove">Remove</a>
+									</p>
+								</li>
+							</ul>
+							<p>
+								<a class="add" href="#" title="Add another">Add</a>
+							</p>
+						</div>
+						<div id="LinkGroup" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Name
+										</dt>
+										<dd>
+											<input type="text" rel='{"links":[{"name":"%s"}]}' value=""/>
+										</dd>
+										<dt>
+											Link
+										</dt>
+										<dd>
+											<input type="text" rel='{"links":[{"link":"%s"}]}' value=""/>
+										</dd>
+									</dl>
+									<p>
+										<a class="remove" href="#" title="Remove">Remove</a>
+									</p>
+								</li>
+							</ul>
+							<p>
+								<a class="add" href="#" title="Add another">Add</a>
+							</p>
+						</div>
+						<div id="List" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Count
+										</dt>
+										<dd>
+											<input type="text" rel='{"count":%d}' value=""/>
+										</dd>
+									</dl>
+								</li>
+							</ul>
+						</div>
+						<div id="ListView" style="display: none;">
+							<p>
+								...
+							</p>
+						</div>
+						<div id="Options" style="display: none;">
+							<p>
+								No further configuration necessary.
+							</p>
+						</div>
+						<div id="Register" style="display: none;">
+							<p>
+								No further configuration necessary.
+							</p>
+						</div>
+						<div id="SetValue" style="display: none;">
+							<p>
+								...
+							</p>
+						</div>
+						<div id="Text" style="display: none;">
+							<p>
+								No further configuration necessary.
+							</p>
+						</div>
+						<div id="TextArea" style="display: none;">
+							<p>
+								No further configuration necessary.
+							</p>
+						</div>
+						<div id="TextInput" style="display: none;">
+							<ul class="list">
+								<li>
+									<dl>
+										<dt>
+											Type
+										</dt>
+										<dd>
+											<select>
+												<option value="none">Any</option>
+												<option value="height">Height (130-210)</option>
+												<option value="weight">Weight (30-180)</option>
+												<option value="amount">Amount (0-~)</option>
+												<option value="date">Date (DD.MM.YYYY)</option>
+												<option value="age">Age (3-100)</option>
+												<option value="userage">User Age (18-100)</option>
+												<option value="email">E-Mail Address (?@?.?)</option>
+											</select>
+										</dd>
+									</dl>
+								</li>
+							</ul>
+						</div>
+						<div id="Video" style="display: none;">
+							<p>
+								No further configuration necessary.
 							</p>
 						</div>
 					</dl>
@@ -114,9 +434,12 @@
 				</legend>
 				<div id="preview">
 					<p>
-						Please press the button 'Preview'.
+						Please press the preview button.
 					</p>
 				</div>
+				<p>
+					<textarea id="object" name="object"></textarea>
+				</p>
 			</fieldset>
 			<fieldset style="display: none;">
 				<legend>

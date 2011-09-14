@@ -1,8 +1,10 @@
 body {
 	font-family: arial, helvetica, clean, sans-serif;
+	font-size: 14px;
 }
 
 fieldset {
+	border: 1px solid #999;
 	padding-bottom: 0;
 }
 
@@ -25,7 +27,28 @@ li {
 }
 
 input, select, textarea {
+	border: 1px solid #ccc;
 	width: 300px;
+}
+
+li dl {
+	float: left;
+	height: 37px;
+	margin: 0;
+	width: 390px;
+}
+
+li dt, li dd {
+	float: left;
+	margin-left: 0;
+}
+
+li dd input, li dd select, li dd textarea {
+	width: 125px;
+}
+
+dd p {
+	margin: 0;
 }
 
 textarea {
@@ -34,7 +57,8 @@ textarea {
 
 input[type="submit"], input[type="button"] {
 	background-color: #ccc;
-	border: 1px solid #000;
+	border: 1px solid #666;
+	clear: both;
 	margin: 10px;
 	width: auto;
 }
@@ -43,4 +67,29 @@ input[type="submit"], input[type="button"] {
 	float: left;
 	width: 25%;
 	margin-right: 5px;
+}
+
+.separator {
+	border-top: 1px dashed #999;
+	margin: 20px 0;
+}
+
+.add, .remove {
+	color: #000000;
+	display: block;
+	height: 37px;
+	line-height: 2.5;
+	margin: 10px 0;
+	overflow: hidden;
+	text-align: center;
+	text-decoration: none;
+	width: 14px;
+}
+
+.add:before {
+	content: "+ ";
+}
+
+.remove:before {
+	content: "- ";
 }
