@@ -62,17 +62,18 @@ function generate() {
 	});
 	
 	$('#object').val($.toJSON(object));
+	$('#properties').val($.toJSON(object.properties));
 	
-	/*var type = '$' + object.type;
+	var type = '$' + object.type;
 	var key = object.key ? ':' + object.key : '';
 	var description = object.description ? "\n\n" + object.description : '';
 	var properties = '(' + $('#properties').val().substring(1, $('#properties').val().length - 1) + ')';
 	$('#modelingName').val(object.title);
-	$('#modelingDescription').val(type + key + properties + description);*/
+	$('#modelingDescription').val(type + key + properties + description);
 }
 
 function convert() {
-	/*var description = $('#modelingDescription').val();
+	var description = $('#modelingDescription').val();
 	var matches = description.match(/([\s\S]+\s+)?\$(\w+)(:(\w+))?\(([^\v]*)\)(\s+[\s\S]+)?/);
 	var object = {};
 	object.type = matches[2];
@@ -80,13 +81,13 @@ function convert() {
 	object.title = $('#title').val();
 	object.description = $.trim(matches[6]);
 	object.properties = $.evalJSON('{' + matches[5] + '}');
-	$('#object').val($.toJSON(object));*/
+	$('#object').val($.toJSON(object));
 }
 
 function test() {
 	generate();
 	
-	/*var object = $('#object').val();
+	var object = $('#object').val();
 	var objectSequence = {};
 	
 	objectSequence.objects = [];
@@ -104,5 +105,5 @@ function test() {
 			debugMode: 'true',
 			element: 'preview'
 		});
-	}*/
+	}
 }
