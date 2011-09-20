@@ -1,0 +1,176 @@
+msgid "Coaching Preview"
+msgstr "Coaching-Vorschau"
+
+msgid "Configuration"
+msgstr "Konfiguration"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Key"
+msgstr "Schlüssel"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Properties"
+msgstr "Eigenschaften"
+
+msgid "Value"
+msgstr "Wert"
+
+msgid "Element"
+msgstr "Element"
+
+msgid "Second"
+msgstr "Sekunde"
+
+msgid "Item"
+msgstr "Eintrag"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "File"
+msgstr "Datei"
+
+msgid "Weight"
+msgstr "Körpergewicht"
+
+msgid "Height"
+msgstr "Körpergröße"
+
+msgid "(reference)"
+msgstr "(Referenz)"
+
+msgid "Count"
+msgstr "Anzahl"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Remove"
+msgstr "Entfernen"
+
+msgid "Add another"
+msgstr "Weiteren hinzufügen"
+
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "Preview"
+msgstr "Vorschau"
+
+msgid "Convert"
+msgstr "Konvertieren"
+
+# messages
+
+msgid "Please select the object type."
+msgstr "Bitte den Objekttypen auswählen."
+
+msgid "Please press the preview button."
+msgstr "Bitte den Vorschau-Button klicken."
+
+msgid "No further configuration necessary."
+msgstr "Keine weitere Konfiguration notwendig."
+
+# types
+
+msgid "BulletPoints"
+msgstr "Stichpunkte"
+
+msgid "Checkboxes"
+msgstr "Kontrollkästchen"
+
+msgid "DieterCategory"
+msgstr "Diätkategorie"
+
+msgid "DocumentDownload"
+msgstr "Dokumenten-Download"
+
+msgid "Dropdown"
+msgstr "Aufklappmenü"
+
+msgid "EnergyDemand"
+msgstr "Energiebedarfsrechner"
+
+msgid "Evaluation"
+msgstr "Evaluation"
+
+msgid "ImageStack"
+msgstr "Bilderstapel"
+
+msgid "Keywords"
+msgstr "Schlüsselwörter"
+
+msgid "LinkGroup"
+msgstr "Link-Gruppe"
+
+msgid "List"
+msgstr "Liste"
+
+msgid "ListView"
+msgstr "Listenansicht"
+
+msgid "Options"
+msgstr "Optionen"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "TextArea"
+msgstr "Großes Textfeld"
+
+msgid "TextInput"
+msgstr "Kleines Textfeld"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "AddValue"
+msgstr "Wert hinzufügen"
+
+msgid "Buy"
+msgstr "Bestellung"
+
+msgid "Coaching"
+msgstr "Coaching"
+
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "Register"
+msgstr "Registrierung"
+
+msgid "SetValue"
+msgstr "Wert setzen"
+
+# TextInput types
+
+msgid "Any"
+msgstr "Beliebig"
+
+msgid "Height (130-210)"
+msgstr "Körpergröße (130-210)"
+
+msgid "Weight (30-180)"
+msgstr "Körpergewicht (30-180)"
+
+msgid "Amount (0-~)"
+msgstr "Anzahl (0-~)"
+
+msgid "Date (DD.MM.YYYY)"
+msgstr "Datum (TT.MM.JJJJ)"
+
+msgid "Age (3-100)"
+msgstr "Alter (3-100)"
+
+msgid "User Age (18-100)"
+msgstr "Kundenalter (18-100)"
+
+msgid "E-Mail Address (?@?.?)"
+msgstr "E-Mail-Addresse (?@?.?)"

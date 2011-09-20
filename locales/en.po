@@ -1,0 +1,176 @@
+msgid "Coaching Preview"
+msgstr "Coaching Preview"
+
+msgid "Configuration"
+msgstr "Configuration"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Key"
+msgstr "Key"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Properties"
+msgstr "Properties"
+
+msgid "Value"
+msgstr "Value"
+
+msgid "Element"
+msgstr "Element"
+
+msgid "Second"
+msgstr "Second"
+
+msgid "Item"
+msgstr "Item"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "File"
+msgstr "File"
+
+msgid "Weight"
+msgstr "Weight"
+
+msgid "Height"
+msgstr "Height"
+
+msgid "(reference)"
+msgstr "(reference)"
+
+msgid "Count"
+msgstr "Count"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Remove"
+msgstr "Remove"
+
+msgid "Add another"
+msgstr "Add another"
+
+msgid "Add"
+msgstr "Add"
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Convert"
+msgstr "Convert"
+
+# messages
+
+msgid "Please select the object type."
+msgstr "Please select the object type."
+
+msgid "Please press the preview button."
+msgstr "Please press the preview button."
+
+msgid "No further configuration necessary."
+msgstr "No further configuration necessary."
+
+# types
+
+msgid "BulletPoints"
+msgstr "BulletPoints"
+
+msgid "Checkboxes"
+msgstr "Checkboxes"
+
+msgid "DieterCategory"
+msgstr "DieterCategory"
+
+msgid "DocumentDownload"
+msgstr "DocumentDownload"
+
+msgid "Dropdown"
+msgstr "Dropdown"
+
+msgid "EnergyDemand"
+msgstr "EnergyDemand"
+
+msgid "Evaluation"
+msgstr "Evaluation"
+
+msgid "ImageStack"
+msgstr "ImageStack"
+
+msgid "Keywords"
+msgstr "Keywords"
+
+msgid "LinkGroup"
+msgstr "LinkGroup"
+
+msgid "List"
+msgstr "List"
+
+msgid "ListView"
+msgstr "ListView"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "TextArea"
+msgstr "TextArea"
+
+msgid "TextInput"
+msgstr "TextInput"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "AddValue"
+msgstr "AddValue"
+
+msgid "Buy"
+msgstr "Buy"
+
+msgid "Coaching"
+msgstr "Coaching"
+
+msgid "Group"
+msgstr "Group"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "SetValue"
+msgstr "SetValue"
+
+# TextInput types
+
+msgid "Any"
+msgstr "Any"
+
+msgid "Height (130-210)"
+msgstr "Height (130-210)"
+
+msgid "Weight (30-180)"
+msgstr "Weight (30-180)"
+
+msgid "Amount (0-~)"
+msgstr "Amount (0-~)"
+
+msgid "Date (DD.MM.YYYY)"
+msgstr "Date (DD.MM.YYYY)"
+
+msgid "Age (3-100)"
+msgstr "Age (3-100)"
+
+msgid "User Age (18-100)"
+msgstr "User Age (18-100)"
+
+msgid "E-Mail Address (?@?.?)"
+msgstr "E-Mail Address (?@?.?)"
