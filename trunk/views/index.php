@@ -30,7 +30,7 @@
 						<dd>
 							<select id="type" name="type">
 								<option value=""></option>
-								<optgroup label="Visible types">
+								<optgroup label="<?php echo $this->localize('Visible types'); ?>">
 									<option value="BulletPoints"><?php echo $this->localize('BulletPoints'); ?></option>
 									<option value="Checkboxes"><?php echo $this->localize('Checkboxes'); ?></option>
 									<option value="DieterCategory"><?php echo $this->localize('DieterCategory'); ?></option>
@@ -49,7 +49,7 @@
 									<option value="TextInput"><?php echo $this->localize('TextInput'); ?></option>
 									<option value="Video"><?php echo $this->localize('Video'); ?></option>
 								</optgroup>
-								<optgroup label="Invisible types">
+								<optgroup label="<?php echo $this->localize('Invisible types'); ?>">
 									<option value="AddValue"><?php echo $this->localize('AddValue'); ?></option>
 									<option value="Buy"><?php echo $this->localize('Buy'); ?></option>
 									<option value="Coaching"><?php echo $this->localize('Coaching'); ?></option>
