@@ -246,14 +246,8 @@
 											<input type="text" value=""/>
 										</dd>
 									</dl>
-									<p>
-										<a class="remove" href="#" title="<?php echo $this->localize('Remove'); ?>"><?php echo $this->localize('Remove'); ?></a>
-									</p>
 								</li>
 							</ul>
-							<p>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</p>
 						</div>
 						<div id="Evaluation" style="display: none;">
 							<p>
