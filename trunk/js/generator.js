@@ -83,11 +83,11 @@ function convert() {
 	object.properties = $.evalJSON('{' + matches[5] + '}');
 	$('#object').val($.toJSON(object));
 	
-	test();
+	test(false);
 }
 
-function test() {
-	generate();
+function test(gen) {
+	if (gen || typeof gen == undefined) generate();
 	
 	var object = $('#object').val();
 	var objectSequence = {};
