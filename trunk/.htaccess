@@ -1,0 +1,13 @@
+RewriteEngine on
+
+RewriteBase /coaching-preview
+
+RewriteRule ^$ index.php [L,QSA]
+
+RewriteCond $1 !^robots\.txt
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !=/favicon.ico
+
+RewriteRule ^$ index.php [L]
+RewriteRule ^([a-z]{2})/?$ index.php?localization=$1 [L,QSA]
