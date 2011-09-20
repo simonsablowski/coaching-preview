@@ -4,6 +4,12 @@ msgstr "Coaching-Vorschau"
 msgid "Configuration"
 msgstr "Konfiguration"
 
+msgid "Visible types"
+msgstr "Sichtbare Typen"
+
+msgid "Invisible types"
+msgstr "Unsichtbare Typen"
+
 msgid "Type"
 msgstr "Typ"
 
@@ -148,6 +154,15 @@ msgstr "Registrierung"
 
 msgid "SetValue"
 msgstr "Wert setzen"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "Modeling Tool"
+msgstr "Modellierungs-Tool"
 
 # TextInput types
 
