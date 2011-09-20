@@ -82,6 +82,8 @@ function convert() {
 	object.description = $.trim(matches[6]);
 	object.properties = $.evalJSON('{' + matches[5] + '}');
 	$('#object').val($.toJSON(object));
+	
+	test();
 }
 
 function test() {

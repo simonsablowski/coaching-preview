@@ -1,9 +1,11 @@
 body {
+	background: #eee;
 	font-family: arial, helvetica, clean, sans-serif;
 	font-size: 14px;
 }
 
 fieldset {
+	background: #fff;
 	border: 1px solid #999;
 	margin: 10px 5px;
 	padding-bottom: 0;
@@ -28,6 +30,7 @@ li {
 }
 
 input, select, textarea {
+	background: #f9f9f9;
 	border: 1px solid #ccc;
 	width: 300px;
 }
