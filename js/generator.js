@@ -46,18 +46,19 @@ function generate() {
 	object.description = $('#description').val();
 	object.properties = {};
 	
-	$('#configuration ul li').each(function(i, row) {
-		var properties = {};
-		$('#configuration ul li *[rel^="{"]').each(function(index, element) {
-			properties = $.extend(true, properties, $.evalJSON($.sprintf($(element).attr('rel'), $(element).val())));
-			/*
-			 * TODO:
-			 * there is a problem with arrays not being merged but replaced
-			 * $.merge(first, second) would do the trick, but therefor we would
-			 * need to iterate through all the properties and check the object types
-			 */
+	$('#configuration li[rel^="{"]').each(function(i, row) {
+		var values = [];
+		$(row).find('input, select, textarea').each(function(j, element) {
+			values.push($(element).val());
 		});
-		object.properties = $.extend({}, object.properties, properties);
+		var extension = $.evalJSON($.vsprintf($(row).attr('rel'), values));
+		for (var key in extension) {
+			if (typeof extension[key] == 'object' && extension[key].length && object.properties[key]) {
+				$.merge(object.properties[key], extension[key]);
+			} else {
+				object.properties = $.extend(true, object.properties, extension);
+			}
+		}
 	});
 	
 	$('#object').val($.toJSON(object));
@@ -85,7 +86,7 @@ function convert() {
 function test() {
 	generate();
 	
-	var object = $('#object').val();
+	/*var object = $('#object').val();
 	var objectSequence = {};
 	
 	objectSequence.objects = [];
@@ -103,5 +104,5 @@ function test() {
 			debugMode: 'true',
 			element: 'preview'
 		});
-	}
+	}*/
 }
