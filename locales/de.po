@@ -22,6 +22,9 @@ msgstr "Titel"
 msgid "Description"
 msgstr "Beschreibung"
 
+msgid "URL"
+msgstr "URL"
+
 msgid "Properties"
 msgstr "Eigenschaften"
 
@@ -51,6 +54,9 @@ msgstr "Körpergröße"
 
 msgid "(reference)"
 msgstr "(Referenz)"
+
+msgid "Items"
+msgstr "Einträge"
 
 msgid "Count"
 msgstr "Anzahl"

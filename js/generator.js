@@ -6,11 +6,8 @@ $(document).ready(function() {
 });
 
 function addItem(item) {
-	var clone = item.children().last().clone();
+	var clone = item.find('.list-item:last').clone(true);
 	item.append(clone);
-	clone.children('p:last').children('a.remove').click(function() {
-		removeItem(clone);
-	});
 }
 
 function removeItem(item) {
@@ -24,13 +21,13 @@ function configure() {
 		return;
 	}
 	
-	$('#configuration').html($('#' + $('#type').val()).html());
+	$('#Object').html($('#' + $('#type').val()).html());
 	
-	$('#configuration a.add').click(function() {
-		addItem($(this).parent().siblings('ul:first'));
+	$('#configuration .add').click(function() {
+		addItem($(this).parents('#configuration').find('.list:last'));
 	});
-	$('#configuration a.remove').click(function() {
-		removeItem($(this).parent().parent());
+	$('#configuration .remove').click(function() {
+		removeItem($(this).parents('.list-item'));
 	});
 }
 
@@ -46,7 +43,7 @@ function generate() {
 	object.description = $('#description').val();
 	object.properties = {};
 	
-	$('#configuration li[rel^="{"]').each(function(i, row) {
+	$('#configuration .list-item[rel^="{"]').each(function(i, row) {
 		var values = [];
 		$(row).find('input, select, textarea').each(function(j, element) {
 			values.push($(element).val());
@@ -106,6 +103,11 @@ function test(gen) {
 			objectSequence: $.toJSON(objectSequence),
 			debugMode: 'true',
 			element: 'preview'
+		});
+	
+		$('#preview').show();
+		$(document).click(function(e) {
+			// $('#preview:visible').hide();
 		});
 	}
 }
