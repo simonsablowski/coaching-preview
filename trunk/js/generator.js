@@ -1,49 +1,48 @@
 function Generator() {
-	var g = this;
-	g.objects = [];
-	g.current = {};
-		
-	g.construct = function() {
-		$('.type').change(g.configure);
-		$('.generate').click(g.generate);
-		$('.convert').click(g.convert);
-		$('.test').click(g.test);
+	Generator.objects = [];
+	Generator.current = {};
+	
+	Generator.construct = function() {
+		$('.type').change(Generator.configure);
+		$('.generate').click(Generator.generate);
+		$('.convert').click(Generator.convert);
+		$('.test').click(Generator.test);
 	};
 	
-	g.configure = function() {
+	Generator.configure = function() {
 		if (!$('.type').val() || !$('#' + $('.type').val()).html()) {
 			return;
 		}
 		
-		g.clearCode();
-		g.loadConfigurationOptions();
-		g.addListFunctionality();
-		g.enableInputElements();
-		g.addToggleFunctionality();
-		g.addCloseFunctionality();
+		Generator.clearCode();
+		Generator.loadConfigurationOptions();
+		Generator.addListFunctionality();
+		Generator.enableInputElements();
+		Generator.addToggleFunctionality();
+		Generator.addCloseFunctionality();
 	};
 	
-	g.clearCode = function() {
+	Generator.clearCode = function() {
 		$('.code').val('');
 	};
 	
-	g.loadConfigurationOptions = function() {
+	Generator.loadConfigurationOptions = function() {
 		$('.prototype').html($('#' + $('.type').val()).html());
 	};
 	
-	g.addListFunctionality = function() {
-		$('.configuration .add').click(g.addListItem);
-		$('.configuration .remove').click(g.removeListItem);
+	Generator.addListFunctionality = function() {
+		$('.configuration .add').click(Generator.addListItem);
+		$('.configuration .remove').click(Generator.removeListItem);
 	};
 	
-	g.addListItem = function() {
+	Generator.addListItem = function() {
 		var item = $(this).parents('.options').find('.list');
 		var clone = item.find('.list-item:last').clone(true);
 		item.append(clone);
 		return false;
 	}
 	
-	g.removeListItem = function() {
+	Generator.removeListItem = function() {
 		var item = $(this).parents('.list-item');
 		if (item.siblings().length > 0) {
 			item.remove();
@@ -51,11 +50,11 @@ function Generator() {
 		return false;
 	}
 	
-	g.enableInputElements = function() {
+	Generator.enableInputElements = function() {
 		$('input, select, textarea').attr('disabled', false);
 	};
 	
-	g.addToggleFunctionality = function() {
+	Generator.addToggleFunctionality = function() {
 		var elements = $('input.enable[type="checkbox"], input.enable[type="radio"]');
 		elements.unbind('click');
 		elements.click(function() {
@@ -63,34 +62,34 @@ function Generator() {
 		});
 	}
 	
-	g.addCloseFunctionality = function() {
+	Generator.addCloseFunctionality = function() {
 		$('.close').click(function() {
 			$(this).parent().hide();
 			return false;
 		});
 	}
 	
-	g.generate = function() {
+	Generator.generate = function() {
 		if (!$('.type').val()) {
 			return;
 		}
 		
-		g.observePrimitiveElements();
-		g.observeCustomElements();
-		g.objects.push(g.current);
+		Generator.observePrimitiveElements();
+		Generator.observeCustomElements();
+		Generator.objects.push(Generator.current);
 		
-		g.outputCode();
+		Generator.outputCode();
 	};
 	
-	g.observePrimitiveElements = function() {
-		g.current.type = $('.type').val();
-		g.current.key = $('.key').val() || undefined;
-		g.current.title = $('.title').val();
-		g.current.description = $('.description').val();
+	Generator.observePrimitiveElements = function() {
+		Generator.current.type = $('.type').val();
+		Generator.current.key = $('.key').val() || undefined;
+		Generator.current.title = $('.title').val();
+		Generator.current.description = $('.description').val();
 	}
 	
-	g.observeCustomElements = function() {
-		g.current.properties = {};
+	Generator.observeCustomElements = function() {
+		Generator.current.properties = {};
 		$('.configuration .list-item[rel^="{"]').filter(':visible').each(function(i, row) {
 			var elements = $(row).find('input, select, textarea');
 			var values = [];
@@ -109,42 +108,42 @@ function Generator() {
 				return false;
 			}
 			for (var key in extension) {
-				if (typeof extension[key] == 'object' && extension[key].length && g.current.properties[key]) {
-					$.merge(g.current.properties[key], extension[key]);
+				if (typeof extension[key] == 'object' && extension[key].length && Generator.current.properties[key]) {
+					$.merge(Generator.current.properties[key], extension[key]);
 				} else {
-					g.current.properties = $.extend(true, g.current.properties, extension);
+					Generator.current.properties = $.extend(true, Generator.current.properties, extension);
 				}
 			}
 		});
 	}
 	
-	g.outputCode = function() {
-		var type = '$' + g.current.type;
-		var key = g.current.key ? ':' + g.current.key : '';
-		var description = g.current.description ? "\n\n" + g.current.description : '';
-		var properties = '(' + $.toJSON(g.current.properties).substring(1, $.toJSON(g.current.properties).length - 1) + ')';
+	Generator.outputCode = function() {
+		var type = '$' + Generator.current.type;
+		var key = Generator.current.key ? ':' + Generator.current.key : '';
+		var description = Generator.current.description ? "\n\n" + Generator.current.description : '';
+		var properties = '(' + $.toJSON(Generator.current.properties).substring(1, $.toJSON(Generator.current.properties).length - 1) + ')';
 		$('.code').val(type + key + properties + description);
 	};
 	
-	g.convert = function() {
+	Generator.convert = function() {
 		var description = $('.code').val();
 		var matches = description.match(/([\s\S]+\s+)?\$(\w+)(:(\w+))?\(([^\v]*)\)(\s+[\s\S]+)?/);
 		
-		g.current.type = matches[2];
-		g.current.key = matches[4];
-		g.current.title = $('.title').val();
-		g.current.description = $.trim(matches[6]);
-		g.current.properties = $.evalJSON('{' + matches[5] + '}');
+		Generator.current.type = matches[2];
+		Generator.current.key = matches[4];
+		Generator.current.title = $('.title').val();
+		Generator.current.description = $.trim(matches[6]);
+		Generator.current.properties = $.evalJSON('{' + matches[5] + '}');
 		
-		g.test(false);
+		Generator.test(false);
 	};
 	
-	g.test = function(gen) {
-		if (!g.current.type) {
-			g.generate();
+	Generator.test = function(gen) {
+		if (!Generator.current.type) {
+			Generator.generate();
 		}
 		
-		g.objects.push({
+		Generator.objects.push({
 			"end": true
 		});
 		
@@ -155,7 +154,7 @@ function Generator() {
 			baseVideoUrl: 'http://videos.motivado.de/',
 			localMode: 'true',
 			objectSequence: $.toJSON({
-				"objects": g.objects
+				"objects": Generator.objects
 			}),
 			debugMode: 'true',
 			element: 'preview'
@@ -164,5 +163,5 @@ function Generator() {
 		$('.preview').show();
 	};
 	
-	g.construct();
+	Generator.construct();
 }
