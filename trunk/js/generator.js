@@ -31,8 +31,8 @@ function Generator() {
 	};
 	
 	Generator.addListFunctionality = function() {
-		$('.configuration .add').click(Generator.addListItem);
-		$('.configuration .remove').click(Generator.removeListItem);
+		$('.configuration .add').unbind('click').click(Generator.addListItem);
+		$('.configuration .remove').unbind('click').click(Generator.removeListItem);
 	};
 	
 	Generator.addListItem = function() {
@@ -55,15 +55,13 @@ function Generator() {
 	};
 	
 	Generator.addToggleFunctionality = function() {
-		var elements = $('input.enable[type="checkbox"], input.enable[type="radio"]');
-		elements.unbind('click');
-		elements.click(function() {
+		$('input.enable[type="checkbox"], input.enable[type="radio"]').unbind('click').click(function() {
 			$(this).parent().next().toggle();
 		});
 	}
 	
 	Generator.addCloseFunctionality = function() {
-		$('.close').click(function() {
+		$('.close').unbind('click').click(function() {
 			$(this).parent().hide();
 			return false;
 		});
