@@ -21,7 +21,7 @@
 	<body>
 		<div class="hidden">
 			<div id="AddValue">
-				<table>
+				<table class="options">
 					<thead>
 						<tr>
 							<th>
@@ -53,7 +53,7 @@
 				</table>
 			</div>
 			<div id="BulletPoints">
-				<table>
+				<table class="options">
 					<thead>
 						<tr>
 							<th>
@@ -92,7 +92,7 @@
 				</table>
 			</div>
 			<div id="Buy">
-				<table>
+				<table class="options">
 					<tbody class="list">
 						<tr class="list-item" rel='{"key":"%s"}'>
 							<td>
@@ -107,7 +107,7 @@
 				</table>
 			</div>
 			<div id="Coaching">
-				<table>
+				<table class="options">
 					<tbody class="list">
 						<tr class="list-item" rel='{"key":"%s"}'>
 							<td>
@@ -122,7 +122,7 @@
 				</table>
 			</div>
 			<div id="Checkboxes">
-				<table>
+				<table class="options">
 					<thead>
 						<tr>
 							<th>
@@ -160,7 +160,7 @@
 				</p>
 			</div>
 			<div id="DocumentDownload">
-				<table>
+				<table class="options">
 					<thead>
 						<tr>
 							<th>
@@ -199,7 +199,7 @@
 				</table>
 			</div>
 			<div id="Dropdown">
-				<table>
+				<table class="options">
 					<thead>
 						<tr>
 							<th>
@@ -231,7 +231,7 @@
 				</table>
 			</div>
 			<div id="EnergyDemand">
-				<table>
+				<table class="options">
 					<tbody class="list">
 						<tr class="list-item" rel='{"weight":"#%s","height":"#%s"}'>
 							<td>
@@ -254,7 +254,7 @@
 			</div>
 			<!-- TODO -->
 			<div id="Evaluation">
-				<table>
+				<table class="options">
 					<thead>
 						<tr>
 							<th>
@@ -296,7 +296,7 @@
 			</div>
 			<!-- end: TODO -->
 			<div id="Group">
-				<table>
+				<table class="options">
 					<tbody class="list">
 						<tr class="list-item" rel='{"count":%d}'>
 							<td>
@@ -311,7 +311,7 @@
 				</table>
 			</div>
 			<div id="ImageStack">
-				<table>
+				<table class="options">
 					<thead>
 						<tr>
 							<th>
@@ -350,7 +350,7 @@
 				</table>
 			</div>
 			<div id="Keywords">
-				<table>
+				<table class="options">
 					<thead>
 						<tr>
 							<th>
@@ -389,7 +389,7 @@
 				</table>
 			</div>
 			<div id="LinkGroup">
-				<table>
+				<table class="options">
 					<thead>
 						<tr>
 							<th>
@@ -428,7 +428,7 @@
 				</table>
 			</div>
 			<div id="List">
-				<table>
+				<table class="options">
 					<tbody class="list">
 						<tr class="list-item" rel='{"items":%d}'>
 							<td>
@@ -444,7 +444,7 @@
 			</div>
 			<!-- TODO -->
 			<div id="ListView">
-				<table>
+				<table class="options">
 					<thead>
 						<tr>
 							<th>
@@ -496,7 +496,7 @@
 				</p>
 			</div>
 			<div id="SetValue">
-				<table>
+				<table class="options">
 					<thead>
 						<tr>
 							<th>
@@ -540,7 +540,7 @@
 				</p>
 			</div>
 			<div id="TextInput">
-				<table>
+				<table class="options">
 					<tbody class="list">
 						<tr class="list-item" rel='{"type":%s}'>
 							<td>
@@ -654,8 +654,8 @@
 
 							<input type="checkbox" class="enable" disabled="disabled"/>
 						</dt>
-						<dd class="Video hidden">
-							<table>
+						<dd class="hidden">
+							<table class="options">
 								<tbody class="list">
 									<tr class="list-item" rel='{"video":{"url":"%s"}}'>
 										<td>
@@ -670,6 +670,62 @@
 							</table>
 						</dd>
 						<dt class="separate">
+							<?php echo $this->localize('Events'); ?>
+
+							<input type="checkbox" class="enable" disabled="disabled"/>
+						</dt>
+						<dd class="hidden">
+							<table class="options">
+								<thead>
+									<tr>
+										<th>
+											<?php echo $this->localize('Element'); ?>
+
+										</th>
+										<th>
+											<?php echo $this->localize('Second'); ?>
+
+										</th>
+										<th>
+											<?php echo $this->localize('URL'); ?>
+
+										</th>
+										<th>
+											&nbsp;
+										</th>
+									</tr>
+								</thead>
+								<tbody class="list">
+									<tr class="list-item" rel='{"events":[{"type":"%s","second":%d,"url":"%s"}]}'>
+										<td>
+											<select>
+												<option value="slide"><?php echo $this->localize('Slide'); ?></option>
+												<option value="hide"><?php echo $this->localize('Hide'); ?></option>
+												<option value="show"><?php echo $this->localize('Show'); ?></option>
+												<option value="clearslide"><?php echo $this->localize('Clear slide'); ?></option>
+											</select>
+										</td>
+										<td>
+											<input type="text" value=""/>
+										</td>
+										<td>
+											<input type="text" value=""/>
+										</td>
+										<td>
+											<a class="remove" href="#" title="<?php echo $this->localize('Remove'); ?>"><?php echo $this->localize('Remove'); ?></a>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td>
+											<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</dd>
+						<dt class="separate">
 							<?php echo $this->localize('Properties'); ?>
 
 						</dt>
@@ -677,23 +733,6 @@
 							<?php echo $this->localize('Please select the object type.'); ?>
 
 						</dd>
-						<?/*<dt class="separate">
-							<?php echo $this->localize('Events'); ?>
-
-							<input type="checkbox" class="enable" disabled="disabled"/>
-						</dt>
-						<dd class="Events hidden">
-							<table>
-								<tbody class="list">
-									<tr class="list-item">
-										<td>
-											<input type="text" value=""/>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</dd>*/?>
-
 					</dl>
 					<p>
 						<input type="button" class="generate" disabled="disabled" value="<?php echo $this->localize('Generate'); ?>"/>

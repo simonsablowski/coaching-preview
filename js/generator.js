@@ -30,7 +30,7 @@ function Generator() {
 	};
 	
 	g.addListItem = function() {
-		var item = $(this).parents('.configuration').find('.list:last');
+		var item = $(this).parents('.options').find('.list');
 		var clone = item.find('.list-item:last').clone(true);
 		item.append(clone);
 		return false;
@@ -151,7 +151,7 @@ function Generator() {
 			debugMode: 'true',
 			element: 'preview'
 		});
-	
+		
 		$('.preview').show();
 	};
 	
