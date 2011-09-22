@@ -10,6 +10,12 @@
 		<script type="text/javascript" src="js/jquery.sprintf.js"></script>
 		<script type="text/javascript" src="js/player.js"></script>
 		<script type="text/javascript" src="js/generator.js"></script>
+		<script type="text/javascript">
+		var host = '<?php echo $this->getConfiguration('host'); ?>';
+		$(function() {
+			var generator = new Generator();
+		});
+		</script>
 		<link type="text/css" href="css/style.css" rel="stylesheet"/>
 	</head>
 	<body>
@@ -663,12 +669,11 @@
 								</tbody>
 							</table>
 						</dd>
-						<input type="hidden" class="properties"/>
 						<dt class="separate">
 							<?php echo $this->localize('Properties'); ?>
 
 						</dt>
-						<dd class="Object">
+						<dd class="prototype">
 							<?php echo $this->localize('Please select the object type.'); ?>
 
 						</dd>
@@ -701,8 +706,7 @@
 					</dt>
 					<dd>
 						<form>
-							<input type="hidden" class="object"/>
-							<textarea class="modelingDescription" disabled="disabled" readonly="readonly"></textarea>
+							<textarea class="code" disabled="disabled" readonly="readonly"></textarea>
 						</form>
 					</dd>
 				</dl>
