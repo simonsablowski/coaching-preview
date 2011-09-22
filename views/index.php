@@ -702,7 +702,7 @@
 					<dd>
 						<form>
 							<input type="hidden" class="object"/>
-							<textarea class="modelingDescription" disabled="disabled"></textarea>
+							<textarea class="modelingDescription" disabled="disabled" readonly="readonly"></textarea>
 						</form>
 					</dd>
 				</dl>
