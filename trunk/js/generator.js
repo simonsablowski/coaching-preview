@@ -1,49 +1,56 @@
 $(document).ready(function() {
-	$('#type').change(configure);
-	$('#generate').click(generate);
-	$('#convert').click(convert);
-	$('#test').click(test);
+	$('.type').change(configure);
+	$('.generate').click(generate);
+	$('.convert').click(convert);
+	$('.test').click(test);
 });
 
-function addItem(item) {
-	var clone = item.find('.list-item:last').clone(true);
-	item.append(clone);
-}
-
-function removeItem(item) {
-	if (item.siblings().length > 0) {
-		item.remove();
-	}
-}
-
 function configure() {
-	if (!$('#type').val() || !$('#' + $('#type').val()).html()) {
+	if (!$('.type').val() || !$('#' + $('.type').val()).html()) {
 		return;
 	}
 	
-	$('#Object').html($('#' + $('#type').val()).html());
+	$('.Object').html($('#' + $('.type').val()).html());
 	
-	$('#configuration .add').click(function() {
-		addItem($(this).parents('#configuration').find('.list:last'));
+	$('.configuration .add').click(function() {
+		var item = $(this).parents('.configuration').find('.list:last');
+		var clone = item.find('.list-item:last').clone(true);
+		item.append(clone);
+		return false;
 	});
-	$('#configuration .remove').click(function() {
-		removeItem($(this).parents('.list-item'));
+	$('.configuration .remove').click(function() {
+		var item = $(this).parents('.list-item');
+		if (item.siblings().length > 0) {
+			item.remove();
+		}
+		return false;
+	});
+	
+	$('input, select, textarea').attr('disabled', false);
+	
+	$('input.enable[type="checkbox"], input.enable[type="radio"]').click(function() {
+		$(this).parent().next().toggle();
+	});
+	
+	$('.close').click(function() {
+		$(this).parent().hide();
+		return false;
 	});
 }
 
 function generate() {
-	if (!$('#type').val()) {
+	if (!$('.type').val()) {
 		return;
 	}
 	
 	var object = {};
-	object.type = $('#type').val();
-	object.key = $('#key').val() || undefined;
-	object.title = $('#title').val();
-	object.description = $('#description').val();
+	object.type = $('.type').val();
+	object.key = $('.key').val() || undefined;
+	object.title = $('.title').val();
+	object.description = $('.description').val();
 	object.properties = {};
 	
-	$('#configuration .list-item[rel^="{"]').each(function(i, row) {
+	$('.configuration .list-item[rel^="{"]').filter(':visible').each(function(i, row) {
 		var values = [];
 		$(row).find('input, select, textarea').each(function(j, element) {
 			values.push($(element).val());
@@ -58,27 +65,27 @@ function generate() {
 		}
 	});
 	
-	$('#object').val($.toJSON(object));
-	$('#properties').val($.toJSON(object.properties));
+	$('.object').val($.toJSON(object));
+	$('.properties').val($.toJSON(object.properties));
 	
 	var type = '$' + object.type;
 	var key = object.key ? ':' + object.key : '';
 	var description = object.description ? "\n\n" + object.description : '';
-	var properties = '(' + $('#properties').val().substring(1, $('#properties').val().length - 1) + ')';
-	$('#modelingName').val(object.title);
-	$('#modelingDescription').val(type + key + properties + description);
+	var properties = '(' + $('.properties').val().substring(1, $('.properties').val().length - 1) + ')';
+	$('.modelingName').val(object.title);
+	$('.modelingDescription').val(type + key + properties + description);
 }
 
 function convert() {
-	var description = $('#modelingDescription').val();
+	var description = $('.modelingDescription').val();
 	var matches = description.match(/([\s\S]+\s+)?\$(\w+)(:(\w+))?\(([^\v]*)\)(\s+[\s\S]+)?/);
 	var object = {};
 	object.type = matches[2];
 	object.key = matches[4];
-	object.title = $('#title').val();
+	object.title = $('.title').val();
 	object.description = $.trim(matches[6]);
 	object.properties = $.evalJSON('{' + matches[5] + '}');
-	$('#object').val($.toJSON(object));
+	$('.object').val($.toJSON(object));
 	
 	test(false);
 }
@@ -86,28 +93,27 @@ function convert() {
 function test(gen) {
 	if (gen || typeof gen == undefined) generate();
 	
-	var object = $('#object').val();
-	var objectSequence = {};
-	
-	objectSequence.objects = [];
-	if (object) {
-		objectSequence.objects.push($.evalJSON(object));
-		var host = 'http://localhost';
+	var objectSequence = {
+		"objects": []
+	};
+	$('.object').each(function(i, element) {
+		var object = $(element).val();
+		if (object) {
+			objectSequence.objects.push($.evalJSON(object));
+			var host = 'http://localhost/motivado';
+			
+			MotivadoPlayer({
+				baseServiceUrl: host + '/motivado-ui/',
+				basePlayerUrl: host + '/player/',
+				baseAssetUrl: host + '/player/assets/',
+				baseVideoUrl: 'http://videos.motivado.de/',
+				localMode: 'true',
+				objectSequence: $.toJSON(objectSequence),
+				debugMode: 'true',
+				element: 'preview'
+			});
 		
-		MotivadoPlayer({
-			baseServiceUrl: host + '/motivado-ui/',
-			basePlayerUrl: host + '/player/',
-			baseAssetUrl: host + '/player/assets/',
-			baseVideoUrl: 'http://videos.motivado.de/',
-			localMode: 'true',
-			objectSequence: $.toJSON(objectSequence),
-			debugMode: 'true',
-			element: 'preview'
-		});
-	
-		$('#preview').show();
-		$(document).click(function(e) {
-			// $('#preview:visible').hide();
-		});
-	}
+			$('.preview').show();
+		}
+	});
 }

@@ -15,7 +15,7 @@ function MotivadoPlayer(config) {
 			autoPlay: config.autoPlay || 'true',
 			debugMode: config.debugMode || 'false',
 			localMode: config.localMode || 'false',
-			objectSequence: config.objectSequence || null
+			objectSequence: config.objectSequence || undefined
 		}
 	});
 }
