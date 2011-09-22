@@ -10,6 +10,9 @@ function configure() {
 		return;
 	}
 	
+	$('.object').val('');
+	$('.modelingDescription').val('');
+	
 	$('.Object').html($('#' + $('.type').val()).html());
 	
 	$('.configuration .add').click(function() {
