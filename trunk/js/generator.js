@@ -3,6 +3,13 @@ function Generator() {
 	g.objects = [];
 	g.current = {};
 		
+	g.construct = function() {
+		$('.type').change(g.configure);
+		$('.generate').click(g.generate);
+		$('.convert').click(g.convert);
+		$('.test').click(g.test);
+	};
+	
 	g.configure = function() {
 		if (!$('.type').val() || !$('#' + $('.type').val()).html()) {
 			return;
@@ -157,8 +164,5 @@ function Generator() {
 		$('.preview').show();
 	};
 	
-	$('.type').change(g.configure);
-	$('.generate').click(g.generate);
-	$('.convert').click(g.convert);
-	$('.test').click(g.test);
+	g.construct();
 }
