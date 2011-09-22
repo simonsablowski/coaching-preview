@@ -19,7 +19,7 @@
 		<link type="text/css" href="css/style.css" rel="stylesheet"/>
 	</head>
 	<body>
-		<div class="hidden">
+		<div style="display: none;">
 			<div id="AddValue">
 				<table class="options">
 					<thead>
@@ -570,7 +570,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="preview hidden">
+		<div class="preview" style="display: none;">
 			<div id="preview"></div>
 			<a class="close" href="#" title="<?php echo $this->localize('Close'); ?>"><?php echo $this->localize('Close'); ?></a>
 		</div>
@@ -628,7 +628,7 @@
 
 							<input type="checkbox" class="enable" disabled="disabled"/>
 						</dt>
-						<dd class="hidden">
+						<dd style="display: none;">
 							<input type="text" class="key" value=""/>
 						</dd>
 						<dt>
@@ -636,7 +636,7 @@
 
 							<input type="checkbox" class="enable" disabled="disabled"/>
 						</dt>
-						<dd class="hidden">
+						<dd style="display: none;">
 							<input type="text" class="title" value=""/>
 						</dd>
 						<dt>
@@ -644,7 +644,7 @@
 
 							<input type="checkbox" class="enable" disabled="disabled"/>
 						</dt>
-						<dd class="hidden">
+						<dd style="display: none;">
 							<textarea class="description"></textarea>
 						</dd>
 					</dl>
@@ -654,7 +654,7 @@
 
 							<input type="checkbox" class="enable" disabled="disabled"/>
 						</dt>
-						<dd class="hidden">
+						<dd style="display: none;">
 							<table class="options">
 								<tbody class="list">
 									<tr class="list-item" rel='{"video":{"url":"%s"}}'>
@@ -674,7 +674,7 @@
 
 							<input type="checkbox" class="enable" disabled="disabled"/>
 						</dt>
-						<dd class="hidden">
+						<dd style="display: none;">
 							<table class="options">
 								<thead>
 									<tr>
