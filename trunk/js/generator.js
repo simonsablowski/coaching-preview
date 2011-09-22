@@ -55,7 +55,17 @@ function generate() {
 		$(row).find('input, select, textarea').each(function(j, element) {
 			values.push($(element).val());
 		});
-		var extension = $.evalJSON($.vsprintf($(row).attr('rel'), values));
+		try {
+			var extension = $.evalJSON($.vsprintf($(row).attr('rel'), values));
+			$(row).find('input, select, textarea').each(function(j, element) {
+				$(element).removeClass('error');
+			});
+		} catch (exception) {
+			$(row).find('input, select, textarea').each(function(j, element) {
+				$(element).addClass('error');
+			});
+			return false;
+		}
 		for (var key in extension) {
 			if (typeof extension[key] == 'object' && extension[key].length && object.properties[key]) {
 				$.merge(object.properties[key], extension[key]);
