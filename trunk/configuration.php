@@ -6,7 +6,7 @@ $configuration['pathApplication'] = dirname(__FILE__) . '/';
 
 $configuration['includeDirectories'] = array(
 	$configuration['pathApplication'],
-	$configuration['pathApplication'] . '../nacho/'
+	$configuration['pathApplication'] . '../../nacho/'
 );
 
 $configuration['Localization'] = array(
@@ -27,3 +27,5 @@ $configuration['Request'] = array(
 	'defaultQuery' => 'Static/show/index',
 	'aliasQueries' => array()
 );
+
+$configuration['host'] = 'http://localhost/motivado';
