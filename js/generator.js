@@ -49,7 +49,9 @@ function Generator() {
 	};
 	
 	g.addToggleFunctionality = function() {
-		$('input.enable[type="checkbox"], input.enable[type="radio"]').click(function() {
+		var elements = $('input.enable[type="checkbox"], input.enable[type="radio"]');
+		elements.unbind('click');
+		elements.click(function() {
 			$(this).parent().next().toggle();
 		});
 	}
