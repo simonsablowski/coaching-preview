@@ -4,19 +4,32 @@ body {
 	font-size: 14px;
 }
 
+h1 {
+	margin: 15px 15px 0;
+}
+
+h1 input[type="button"] {
+	margin-left: 15px;
+}
+
 fieldset {
 	background: #fff;
 	border: 1px solid #999;
-	margin: 10px 5px;
+	margin: 15px;
+	padding: 0;
+}
+
+legend {
+	margin: 0 10px;
 }
 
 form {
 	margin: 0;
 }
 
-dl, dt, dd, p, th, td {
+dt, dd, p, th, td {
 	margin: 0;
-	padding: 5px;
+	padding: 5px 15px;
 }
 
 ul, ol, li {
@@ -34,11 +47,11 @@ table {
 }
 
 tr, th, td {
+	font-weight: normal;
 	vertical-align: top;
 }
 
 th {
-	font-weight: normal;
 	text-align: left;
 }
 
@@ -48,53 +61,37 @@ input, select, textarea {
 	width: 300px;
 }
 
-textarea {
-	height: 100px;
+input[type="submit"], input[type="button"], input[type="checkbox"], input[type="radio"] {
+	width: auto !important;
 }
 
 input[type="submit"], input[type="button"] {
 	background-color: #ccc;
 	border: 1px solid #666;
 	clear: both;
-	margin: 0 5px;
-	width: auto;
+}
+
+input[type="checkbox"], input[type="radio"] {
+	margin-left: 15px;
+}
+
+input[disabled="disabled"], select[disabled="disabled"], textarea[disabled="disabled"] {
+	opacity: 0.25;
+}
+
+textarea {
+	height: 100px;
+}
+
+.hidden {
+	display: none;
 }
 
 .column {
 	float: left;
-	width: 475px;
-	margin-right: 5px;
 }
 
-.separator {
-	border-top: 1px dashed #999;
-	margin: 20px 0;
-}
-
-#configuration dl {
-	height: 37px;
-	margin: 0;
-	width: 390px;
-}
-
-#configuration dl, #configuration dl dt, #configuration dl dd, #configuration table th, #configuration table td {
-	padding-left: 0;
-	padding-right: 10px;
-}
-
-#configuration dl dt, #configuration dl dd {
-	float: left;
-}
-
-#configuration dd p {
-	padding: 0;
-}
-
-#configuration input, #configuration select, #configuration textarea {
-	width: 125px;
-}
-
-#configuration .add, #configuration .remove {
+.add, .remove, .close {
 	color: #000000;
 	display: block;
 	height: 20px;
@@ -105,16 +102,72 @@ input[type="submit"], input[type="button"] {
 	width: 14px;
 }
 
-#configuration .add:before {
+fieldset > .add {
+	float: right;
+	font-size: 200%;
+	height: 30px;
+	line-height: 1;
+	margin: 5px 15px;
+}
+
+.add:before {
 	content: "+ ";
 }
 
-#configuration .remove:before {
+.remove:before {
 	content: "- ";
 }
 
+.close:before {
+	content: "x ";
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.separate {
+	border-top: 1px dashed #999;
+	margin-top: 15px;
+	padding-top: 15px;
+}
+
+.configuration dl {
+	height: 37px;
+	margin: 0;
+	width: 390px;
+}
+
+.configuration dl, .configuration dl dt, .configuration dl dd, .configuration table th, .configuration table td {
+	padding-left: 0;
+	padding-right: 10px;
+}
+
+.configuration dl dt, .configuration dl dd {
+	float: left;
+}
+
+.configuration dd p {
+	padding: 0;
+}
+
+.configuration input, .configuration select, .configuration textarea {
+	width: 125px;
+}
+
+.preview {
+	line-height: 0;
+	position: absolute;
+	width: 980px;
+}
+
+.preview .close {
+	font-size: 200%;
+	height: 30px;
+	line-height: 1 !important;
+}
+
 #preview {
-	border: 10px solid #999;
+	border: 1px solid #999;
 	left: 0;
 	position: absolute;
 	top: 0;
