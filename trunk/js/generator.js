@@ -73,6 +73,9 @@ function Generator() {
 	
 	Generator.enableInputElements = function() {
 		$(':input').attr('disabled', false);
+		if ($('#' + $('.type').val()).hasClass('invisible')) {
+			$(':input.for-visible').attr('disabled', true);
+		}
 	};
 	
 	Generator.addToggleFunctionality = function() {
