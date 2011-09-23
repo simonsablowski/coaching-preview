@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		<div style="display: none;">
-			<div id="AddValue">
+			<div id="AddValue" class="invisible">
 				<table class="options">
 					<thead>
 						<tr>
@@ -91,7 +91,7 @@
 					</tfoot>
 				</table>
 			</div>
-			<div id="Buy">
+			<div id="Buy" class="invisible">
 				<table class="options">
 					<tbody class="list">
 						<tr class="list-item" rel='{"key":"%s"}'>
@@ -106,7 +106,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div id="Coaching">
+			<div id="Coaching" class="invisible">
 				<table class="options">
 					<tbody class="list">
 						<tr class="list-item" rel='{"key":"%s"}'>
@@ -295,7 +295,7 @@
 				</table>
 			</div>
 			<!-- end: TODO -->
-			<div id="Group">
+			<div id="Group" class="invisible">
 				<table class="options">
 					<tbody class="list">
 						<tr class="list-item" rel='{"count":%d}'>
@@ -489,13 +489,13 @@
 
 				</p>
 			</div>
-			<div id="Register">
+			<div id="Register" class="invisible">
 				<p>
 					<?php echo $this->localize('No further configuration necessary.'); ?>
 
 				</p>
 			</div>
-			<div id="SetValue">
+			<div id="SetValue" class="invisible">
 				<table class="options">
 					<thead>
 						<tr>
@@ -652,7 +652,7 @@
 						<dt>
 							<?php echo $this->localize('Video'); ?>
 
-							<input type="checkbox" class="enable" disabled="disabled"/>
+							<input type="checkbox" class="enable for-visible" disabled="disabled"/>
 						</dt>
 						<dd style="display: none;">
 							<table class="options">
@@ -672,7 +672,7 @@
 						<dt class="separate">
 							<?php echo $this->localize('Events'); ?>
 
-							<input type="checkbox" class="enable" disabled="disabled"/>
+							<input type="checkbox" class="enable for-visible" disabled="disabled"/>
 						</dt>
 						<dd style="display: none;">
 							<table class="options">
