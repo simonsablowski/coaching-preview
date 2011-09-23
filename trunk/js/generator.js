@@ -3,10 +3,32 @@ function Generator() {
 	Generator.current = {};
 	
 	Generator.construct = function() {
+		Generator.addButtonFunctionality();
+		Generator.addColumnFunctionality();
+		Generator.addCloseFunctionality();
+	};
+	
+	Generator.addButtonFunctionality = function() {
 		$('.type').change(Generator.configure);
 		$('.generate').click(Generator.generate);
 		$('.convert').click(Generator.convert);
 		$('.test').click(Generator.test);
+	};
+	
+	Generator.addColumnFunctionality = function() {
+		$('.add-column').click(function() {
+			var column = $(this).parents('.column');
+			var clone = column.clone(true);
+			column.parent().append(clone);
+			return false;
+		});
+	};
+	
+	Generator.addCloseFunctionality = function() {
+		$('.close').click(function() {
+			$(this).parent().hide();
+			return false;
+		});
 	};
 	
 	Generator.configure = function() {
@@ -19,7 +41,6 @@ function Generator() {
 		Generator.addListFunctionality();
 		Generator.enableInputElements();
 		Generator.addToggleFunctionality();
-		Generator.addCloseFunctionality();
 	};
 	
 	Generator.clearCode = function() {
@@ -36,11 +57,11 @@ function Generator() {
 	};
 	
 	Generator.addListItem = function() {
-		var item = $(this).parents('.options').find('.list');
-		var clone = item.find('.list-item:last').clone(true);
-		item.append(clone);
+		var list = $(this).parents('.options').find('.list');
+		var clone = list.find('.list-item:last').clone(true);
+		list.append(clone);
 		return false;
-	}
+	};
 	
 	Generator.removeListItem = function() {
 		var item = $(this).parents('.list-item');
@@ -48,24 +69,17 @@ function Generator() {
 			item.remove();
 		}
 		return false;
-	}
+	};
 	
 	Generator.enableInputElements = function() {
-		$('input, select, textarea').attr('disabled', false);
+		$(':input').attr('disabled', false);
 	};
 	
 	Generator.addToggleFunctionality = function() {
-		$('input.enable[type="checkbox"], input.enable[type="radio"]').unbind('click').click(function() {
+		$(':checkbox.enable, :radio.enable').unbind('click').click(function() {
 			$(this).parent().next().toggle();
 		});
-	}
-	
-	Generator.addCloseFunctionality = function() {
-		$('.close').unbind('click').click(function() {
-			$(this).parent().hide();
-			return false;
-		});
-	}
+	};
 	
 	Generator.generate = function() {
 		if (!$('.type').val()) {
@@ -84,12 +98,12 @@ function Generator() {
 		Generator.current.key = $('.key').val() || undefined;
 		Generator.current.title = $('.title').val();
 		Generator.current.description = $('.description').val();
-	}
+	};
 	
 	Generator.observeCustomElements = function() {
 		Generator.current.properties = {};
 		$('.configuration .list-item[rel^="{"]').filter(':visible').each(function(i, row) {
-			var elements = $(row).find('input, select, textarea');
+			var elements = $(row).find(':input');
 			var values = [];
 			elements.each(function(j, element) {
 				values.push($(element).val());
@@ -113,7 +127,7 @@ function Generator() {
 				}
 			}
 		});
-	}
+	};
 	
 	Generator.outputCode = function() {
 		var type = '$' + Generator.current.type;
@@ -137,7 +151,7 @@ function Generator() {
 	};
 	
 	Generator.test = function(gen) {
-		if (!Generator.current.type) {
+		if (typeof Generator.current.type == undefined || typeof Generator.current.properties == undefined) {
 			Generator.generate();
 		}
 		

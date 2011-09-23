@@ -740,7 +740,7 @@
 				</form>
 				<dl class="separate">
 					<dt>
-						<?php echo $this->localize('Code'); ?>
+						<?php echo $this->localize('Code output'); ?>
 
 					</dt>
 					<dd>
@@ -749,7 +749,7 @@
 						</form>
 					</dd>
 				</dl>
-				<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+				<a class="add-column" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
 			</fieldset>
 		</div>
 	</body>
