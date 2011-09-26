@@ -1,111 +1,131 @@
-function Generator() {
-	Generator.objects = [];
-	Generator.current = {};
+function Generator(id) {
+	var self = this;
+	self.id = null;
+	self.object = {};
 	
-	Generator.construct = function() {
-		Generator.addButtonFunctionality();
-		Generator.addColumnFunctionality();
-		Generator.addCloseFunctionality();
+	self.construct = function(id) {
+		self.id = id;
+		$('#' + self.id + ' :input.type').unbind('change').change(self.configure);
+		$('#' + self.id + ' :input.generate').unbind('click').click(self.generate);
+		$('#' + self.id + ' :input.convert').unbind('click').click(self.convert);
+		
+		return true;
 	};
 	
-	Generator.addButtonFunctionality = function() {
-		$('.type').change(Generator.configure);
-		$('.generate').click(Generator.generate);
-		$('.convert').click(Generator.convert);
-		$('.test').click(Generator.test);
-	};
-	
-	Generator.addColumnFunctionality = function() {
-		$('.add-column').click(function() {
-			var column = $(this).parents('.column');
-			var clone = column.clone(true);
-			column.parent().append(clone);
+	self.configure = function() {
+		if (!$('#' + self.id + ' :input.type').val() || !$('#' + $('#' + self.id + ' :input.type').val()).html()) {
 			return false;
-		});
-	};
-	
-	Generator.addCloseFunctionality = function() {
-		$('.close').click(function() {
-			$(this).parent().hide();
-			return false;
-		});
-	};
-	
-	Generator.configure = function() {
-		if (!$('.type').val() || !$('#' + $('.type').val()).html()) {
-			return;
 		}
 		
-		Generator.clearCode();
-		Generator.loadConfigurationOptions();
-		Generator.addListFunctionality();
-		Generator.enableInputElements();
-		Generator.addToggleFunctionality();
+		self.clearCode();
+		self.loadConfigurationOptions();
+		self.addListFunctionality();
+		self.enableInputElements();
+		self.addToggleFunctionality();
+		self.addCloneFunctionality();
+		
+		return true;
 	};
 	
-	Generator.clearCode = function() {
-		$('.code').val('');
+	self.clearCode = function() {
+		$('#' + self.id + ' :input.code').val('');
+		
+		return true;
 	};
 	
-	Generator.loadConfigurationOptions = function() {
-		$('.prototype').html($('#' + $('.type').val()).html());
+	self.loadConfigurationOptions = function() {
+		$('#' + self.id + ' .prototype').html($('#' + $('#' + self.id + ' :input.type').val()).html());
+		
+		return true;
 	};
 	
-	Generator.addListFunctionality = function() {
-		$('.configuration .add').unbind('click').click(Generator.addListItem);
-		$('.configuration .remove').unbind('click').click(Generator.removeListItem);
+	self.addListFunctionality = function() {
+		$('#' + self.id + ' .configuration .add').unbind('click').click(self.addListItem);
+		$('#' + self.id + ' .configuration .remove').unbind('click').click(self.removeListItem);
+		
+		return true;
 	};
 	
-	Generator.addListItem = function() {
+	self.addListItem = function() {
 		var list = $(this).parents('.options').find('.list');
 		var clone = list.find('.list-item:last').clone(true);
 		list.append(clone);
+		
 		return false;
 	};
 	
-	Generator.removeListItem = function() {
+	self.removeListItem = function() {
 		var item = $(this).parents('.list-item');
 		if (item.siblings().length > 0) {
 			item.remove();
 		}
+		
 		return false;
 	};
 	
-	Generator.enableInputElements = function() {
-		$(':input').attr('disabled', false);
-		if ($('#' + $('.type').val()).hasClass('invisible')) {
-			$(':input.for-visible').attr('disabled', true);
+	self.enableInputElements = function() {
+		$('#' + self.id + ' :input').attr('disabled', false);
+		if ($('#' + $(':input.type').val()).hasClass('invisible')) {
+			$('#' + self.id + ' :input.for-visible').attr('disabled', true);
 		}
+		
+		return true;
 	};
 	
-	Generator.addToggleFunctionality = function() {
-		$(':checkbox.enable, :radio.enable').unbind('click').click(function() {
+	self.addToggleFunctionality = function() {
+		$('#' + self.id + ' :checkbox.enable, #' + self.id + ' :radio.enable').unbind('click').click(function() {
 			$(this).parent().next().toggle();
 		});
+		
+		return true;
 	};
 	
-	Generator.generate = function() {
-		if (!$('.type').val()) {
-			return;
+	self.addCloneFunctionality = function() {
+		$('.add-column').unbind('click').click(function() {
+			var column = $(this).parents('.column');
+			var clone = column.clone(true);
+			column.parent().append(clone);
+			var id = 'column' + $('.column').length;
+			clone.attr('id', id);
+			new Generator(id);
+			
+			return false;
+		});
+		
+		return true;
+	};
+	
+	self.generate = function() {
+		if (!$('#' + self.id + ' :input.type').val()) {
+			return false;
 		}
 		
-		Generator.observePrimitiveElements();
-		Generator.observeCustomElements();
-		Generator.objects.push(Generator.current);
+		try {
+			self.observePrimitiveElements();
+			self.observeCustomElements();
+			objects.push(self.object);
+			
+			self.outputCode();
+			self.enablePreviewButton();
+		} catch (exception) {
+			return false;
+		}
 		
-		Generator.outputCode();
+		return true;
 	};
 	
-	Generator.observePrimitiveElements = function() {
-		Generator.current.type = $('.type').val();
-		Generator.current.key = $('.key').val() || undefined;
-		Generator.current.title = $('.title').val();
-		Generator.current.description = $('.description').val();
+	self.observePrimitiveElements = function() {
+		self.object.type = $('#' + self.id + ' :input.type').val();
+		self.object.key = $('#' + self.id + ' :input.key').val() || undefined;
+		self.object.title = $('#' + self.id + ' :input.title').val();
+		self.object.description = $('#' + self.id + ' :input.description').val();
+		
+		return true;
 	};
 	
-	Generator.observeCustomElements = function() {
-		Generator.current.properties = {};
-		$('.configuration .list-item[rel^="{"]').filter(':visible').each(function(i, row) {
+	self.observeCustomElements = function() {
+		self.object.properties = {};
+		$('#' + self.id + ' .configuration .list-item[rel^="{"]').filter(':visible').each(function(i, row) {
 			var elements = $(row).find(':input');
 			var values = [];
 			elements.each(function(j, element) {
@@ -120,45 +140,57 @@ function Generator() {
 				elements.each(function(j, element) {
 					$(element).addClass('error');
 				});
-				return false;
+				throw 'Validation error in observeCustomElements';
 			}
 			for (var key in extension) {
-				if (typeof extension[key] == 'object' && extension[key].length && Generator.current.properties[key]) {
-					$.merge(Generator.current.properties[key], extension[key]);
+				if (typeof extension[key] == 'object' && extension[key].length && self.object.properties[key]) {
+					$.merge(self.object.properties[key], extension[key]);
 				} else {
-					Generator.current.properties = $.extend(true, Generator.current.properties, extension);
+					self.object.properties = $.extend(true, self.object.properties, extension);
 				}
 			}
 		});
+		
+		return true;
 	};
 	
-	Generator.outputCode = function() {
-		var type = '$' + Generator.current.type;
-		var key = Generator.current.key ? ':' + Generator.current.key : '';
-		var description = Generator.current.description ? "\n\n" + Generator.current.description : '';
-		var properties = '(' + $.toJSON(Generator.current.properties).substring(1, $.toJSON(Generator.current.properties).length - 1) + ')';
-		$('.code').val(type + key + properties + description);
+	self.outputCode = function() {
+		var type = '$' + self.object.type;
+		var key = self.object.key ? ':' + self.object.key : '';
+		var description = self.object.description ? "\n\n" + self.object.description : '';
+		var properties = '(' + $.toJSON(self.object.properties).substring(1, $.toJSON(self.object.properties).length - 1) + ')';
+		$('#' + self.id + ' :input.code').val(type + key + properties + description);
+		
+		return true;
 	};
 	
-	Generator.convert = function() {
-		var description = $('.code').val();
+	self.enablePreviewButton = function() {
+		$(':input.test').attr('disabled', false).unbind('click').click(self.test);
+		
+		return true;
+	};
+	
+	self.convert = function() {
+		var description = $('#' + self.id + ' :input.code').val();
 		var matches = description.match(/([\s\S]+\s+)?\$(\w+)(:(\w+))?\(([^\v]*)\)(\s+[\s\S]+)?/);
 		
-		Generator.current.type = matches[2];
-		Generator.current.key = matches[4];
-		Generator.current.title = $('.title').val();
-		Generator.current.description = $.trim(matches[6]);
-		Generator.current.properties = $.evalJSON('{' + matches[5] + '}');
+		self.object.type = matches[2];
+		self.object.key = matches[4];
+		self.object.title = $('#' + self.id + ' :input.title').val();
+		self.object.description = $.trim(matches[6]);
+		self.object.properties = $.evalJSON('{' + matches[5] + '}');
 		
-		Generator.test(false);
+		self.test(false);
+		
+		return true;
 	};
 	
-	Generator.test = function(gen) {
-		if (typeof Generator.current.type == undefined || typeof Generator.current.properties == undefined) {
-			Generator.generate();
+	self.test = function(gen) {
+		if (typeof self.object.type == undefined || typeof self.object.properties == undefined) {
+			self.generate();
 		}
 		
-		Generator.objects.push({
+		objects.push({
 			"end": true
 		});
 		
@@ -169,14 +201,21 @@ function Generator() {
 			baseVideoUrl: 'http://videos.motivado.de/',
 			localMode: 'true',
 			objectSequence: $.toJSON({
-				"objects": Generator.objects
+				"objects": objects
 			}),
 			debugMode: 'true',
 			element: 'preview'
 		});
 		
+		$('.close').unbind('click').click(function() {
+			$(this).parent().hide();
+			return false;
+		});
+		
 		$('.preview').show();
+		
+		return true;
 	};
 	
-	Generator.construct();
+	self.construct(id);
 }
