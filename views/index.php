@@ -10,12 +10,6 @@
 		<script type="text/javascript" src="js/jquery.sprintf.js"></script>
 		<script type="text/javascript" src="js/player.js"></script>
 		<script type="text/javascript" src="js/generator.js"></script>
-		<script type="text/javascript">
-		var host = '<?php echo $this->getConfiguration('host'); ?>';
-		$(function() {
-			var generator = new Generator();
-		});
-		</script>
 		<link type="text/css" href="css/style.css" rel="stylesheet"/>
 	</head>
 	<body>
@@ -542,7 +536,7 @@
 			<div id="TextInput">
 				<table class="options">
 					<tbody class="list">
-						<tr class="list-item" rel='{"type":%s}'>
+						<tr class="list-item" rel='{"type":"%s"}'>
 							<td>
 								<?php echo $this->localize('Type'); ?>
 
@@ -579,7 +573,7 @@
 
 			<input type="button" class="test" disabled="disabled" value="<?php echo $this->localize('Preview'); ?>"/>
 		</h1>
-		<div class="column">
+		<div id="column1" class="column">
 			<fieldset>
 				<!--<legend>
 					<?php echo $this->localize('Configuration'); ?>
@@ -752,5 +746,12 @@
 				<a class="add-column" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
 			</fieldset>
 		</div>
+		<script type="text/javascript">
+		var host = '<?php echo $this->getConfiguration('host'); ?>';
+		$(function() {
+			objects = [];
+			new Generator('column1');
+		});
+		</script>
 	</body>
 </html>
