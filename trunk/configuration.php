@@ -6,7 +6,7 @@ $configuration['pathApplication'] = dirname(__FILE__) . '/';
 
 $configuration['includeDirectories'] = array(
 	$configuration['pathApplication'],
-	$configuration['pathApplication'] . '../../nacho/'
+	$configuration['pathApplication'] . '../nacho/'
 );
 
 $configuration['Localization'] = array(
@@ -28,4 +28,4 @@ $configuration['Request'] = array(
 	'aliasQueries' => array()
 );
 
-$configuration['host'] = 'http://localhost/motivado';
+$configuration['host'] = 'http://localhost';

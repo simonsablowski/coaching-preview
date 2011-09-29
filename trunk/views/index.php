@@ -563,6 +563,12 @@
 
 				</p>
 			</div>
+			<div id="convert">
+				<p>
+					<?php echo $this->localize('Configuration is disabled for the conversion mode.'); ?>
+
+				</p>
+			</div>
 		</div>
 		<div class="preview" style="display: none;">
 			<div id="preview"></div>
@@ -571,7 +577,7 @@
 		<h1>
 			<?php echo $this->localize('Coaching Preview'); ?>
 
-			<input type="button" class="test" disabled="disabled" value="<?php echo $this->localize('Preview'); ?>"/>
+			<input type="button" class="test disabled button" disabled="disabled" value="<?php echo $this->localize('Preview'); ?>"/>
 		</h1>
 		<div id="column1" class="column">
 			<fieldset>
@@ -620,7 +626,7 @@
 						<dt>
 							<?php echo $this->localize('Key'); ?>
 
-							<input type="checkbox" class="enable" disabled="disabled"/>
+							<input type="checkbox" class="enable disabled checkbox" disabled="disabled"/>
 						</dt>
 						<dd style="display: none;">
 							<input type="text" class="key" value=""/>
@@ -628,7 +634,7 @@
 						<dt>
 							<?php echo $this->localize('Title'); ?>
 
-							<input type="checkbox" class="enable" disabled="disabled"/>
+							<input type="checkbox" class="enable disabled checkbox" disabled="disabled"/>
 						</dt>
 						<dd style="display: none;">
 							<input type="text" class="title" value=""/>
@@ -636,7 +642,7 @@
 						<dt>
 							<?php echo $this->localize('Description'); ?>
 
-							<input type="checkbox" class="enable" disabled="disabled"/>
+							<input type="checkbox" class="enable disabled checkbox" disabled="disabled"/>
 						</dt>
 						<dd style="display: none;">
 							<textarea class="description"></textarea>
@@ -646,7 +652,7 @@
 						<dt>
 							<?php echo $this->localize('Video'); ?>
 
-							<input type="checkbox" class="enable for-visible" disabled="disabled"/>
+							<input type="checkbox" class="enable for-visible disabled checkbox" disabled="disabled"/>
 						</dt>
 						<dd style="display: none;">
 							<table class="options">
@@ -666,7 +672,7 @@
 						<dt class="separate">
 							<?php echo $this->localize('Events'); ?>
 
-							<input type="checkbox" class="enable for-visible" disabled="disabled"/>
+							<input type="checkbox" class="enable for-visible disabled checkbox" disabled="disabled"/>
 						</dt>
 						<dd style="display: none;">
 							<table class="options">
@@ -689,7 +695,7 @@
 										</th>
 									</tr>
 								</thead>
-								<tbody class="list">
+								<tbody class="list many">
 									<tr class="list-item" rel='{"events":[{"type":"%s","second":%d,"url":"%s"}]}'>
 										<td>
 											<select>
@@ -729,20 +735,23 @@
 						</dd>
 					</dl>
 					<p>
-						<input type="button" class="generate" disabled="disabled" value="<?php echo $this->localize('Generate'); ?>"/>
+						<input type="button" class="generate disabled button" disabled="disabled" value="<?php echo $this->localize('Generate'); ?>"/>
 					</p>
 				</form>
-				<dl class="separate">
-					<dt>
-						<?php echo $this->localize('Code output'); ?>
+				<form>
+					<dl class="separate">
+						<dt>
+							<?php echo $this->localize('Code'); ?>
 
-					</dt>
-					<dd>
-						<form>
-							<textarea class="code" disabled="disabled" readonly="readonly"></textarea>
-						</form>
-					</dd>
-				</dl>
+						</dt>
+						<dd>
+								<textarea class="code"></textarea>
+						</dd>
+					</dl>
+					<p>
+						<input type="button" class="convert button" value="<?php echo $this->localize('Convert'); ?>"/>
+					</p>
+				</form>
 				<a class="add-column" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
 			</fieldset>
 		</div>

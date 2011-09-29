@@ -1,3 +1,5 @@
+#titles
+
 msgid "Coaching Preview"
 msgstr "Coaching-Vorschau"
 
@@ -9,6 +11,57 @@ msgstr "Sichtbare Typen"
 
 msgid "Invisible types"
 msgstr "Unsichtbare Typen"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Events"
+msgstr "Ereignisse"
+
+msgid "Properties"
+msgstr "Eigenschaften"
+
+msgid "Code"
+msgstr "Code"
+
+# button labels
+
+msgid "Preview"
+msgstr "Vorschau"
+
+msgid "Generate"
+msgstr "Generieren"
+
+msgid "Convert"
+msgstr "Konvertieren"
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Add"
+msgstr "Hinzufügen"
+
+msgid "Remove"
+msgstr "Entfernen"
+
+msgid "Add another"
+msgstr "Hinzufügen"
+
+# messages
+
+msgid "Please select the object type."
+msgstr "Bitte wähle den Objekttyp aus."
+
+msgid "Please press the preview button."
+msgstr "Bitte klicke den Vorschau-Button."
+
+msgid "No further configuration necessary."
+msgstr "Keine weitere Konfiguration notwendig."
+
+msgid "Configuration is disabled for the conversion mode."
+msgstr "Konfiguration ist im Konvertiermodus deaktiviert."
+
+# fields
 
 msgid "Type"
 msgstr "Typ"
@@ -24,9 +77,6 @@ msgstr "Beschreibung"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "Properties"
-msgstr "Eigenschaften"
 
 msgid "Value"
 msgstr "Wert"
@@ -55,6 +105,9 @@ msgstr "Körpergröße"
 msgid "(reference)"
 msgstr "(Referenz)"
 
+msgid "Criterion"
+msgstr "Kriterium"
+
 msgid "Items"
 msgstr "Einträge"
 
@@ -64,33 +117,21 @@ msgstr "Anzahl"
 msgid "Link"
 msgstr "Link"
 
-msgid "Remove"
-msgstr "Entfernen"
+# event types
 
-msgid "Add another"
-msgstr "Weiteren hinzufügen"
+msgid "Slide"
+msgstr "Reinsliden"
 
-msgid "Add"
-msgstr "Hinzufügen"
+msgid "Hide"
+msgstr "Verbergen"
 
-msgid "Preview"
-msgstr "Vorschau"
+msgid "Show"
+msgstr "Zeigen"
 
-msgid "Convert"
-msgstr "Konvertieren"
+msgid "Clear slide"
+msgstr "Raussliden"
 
-# messages
-
-msgid "Please select the object type."
-msgstr "Bitte den Objekttypen auswählen."
-
-msgid "Please press the preview button."
-msgstr "Bitte den Vorschau-Button klicken."
-
-msgid "No further configuration necessary."
-msgstr "Keine weitere Konfiguration notwendig."
-
-# types
+# object types
 
 msgid "BulletPoints"
 msgstr "Stichpunkte"
@@ -108,7 +149,7 @@ msgid "Dropdown"
 msgstr "Aufklappmenü"
 
 msgid "EnergyDemand"
-msgstr "Energiebedarfsrechner"
+msgstr "Energiebedarf"
 
 msgid "Evaluation"
 msgstr "Evaluation"
@@ -160,15 +201,6 @@ msgstr "Registrierung"
 
 msgid "SetValue"
 msgstr "Wert setzen"
-
-msgid "Code"
-msgstr "Code"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "Modeling Tool"
-msgstr "Modellierungs-Tool"
 
 # TextInput types
 
