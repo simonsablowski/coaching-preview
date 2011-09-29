@@ -39,6 +39,12 @@ function Generator(id) {
 		return true;
 	};
 	
+	self.resetConfigurationOptions = function() {
+		$('#' + self.id + ' .prototype').html($('#convert').html());
+		
+		return true;
+	};
+	
 	self.addListFunctionality = function() {
 		$('#' + self.id + ' .configuration .add').unbind('click').click(self.addListItem);
 		$('#' + self.id + ' .configuration .remove').unbind('click').click(self.removeListItem);
@@ -64,10 +70,17 @@ function Generator(id) {
 	};
 	
 	self.enableInputElements = function() {
-		$('#' + self.id + ' :input').attr('disabled', false);
+		$('#' + self.id + ' :input').attr('disabled', false).removeClass('disabled');
 		if ($('#' + $(':input.type').val()).hasClass('invisible')) {
-			$('#' + self.id + ' :input.for-visible').attr('disabled', true);
+			$('#' + self.id + ' :input.for-visible').attr('disabled', true).addClass('disabled');
 		}
+		
+		return true;
+	};
+	
+	self.disableInputElements = function() {
+		$('#' + self.id + ' :checkbox.enable, #' + self.id + ' :radio.enable').filter(':checked').prop('checked', false).parent().next().hide();
+		$('#' + self.id + ' :input.enable').attr('disabled', true).addClass('disabled');
 		
 		return true;
 	};
@@ -165,7 +178,7 @@ function Generator(id) {
 	};
 	
 	self.enablePreviewButton = function() {
-		$(':input.test').attr('disabled', false).unbind('click').click(self.test);
+		$(':input.test').attr('disabled', false).removeClass('disabled').unbind('click').click(self.test);
 		
 		return true;
 	};
@@ -180,12 +193,13 @@ function Generator(id) {
 		self.object.description = $.trim(matches[6]);
 		self.object.properties = $.evalJSON('{' + matches[5] + '}');
 		
-		self.test(false);
+		self.disableInputElements();
+		self.resetConfigurationOptions();
 		
 		return true;
 	};
 	
-	self.test = function(gen) {
+	self.test = function() {
 		if (typeof self.object.type == undefined || typeof self.object.properties == undefined) {
 			self.generate();
 		}

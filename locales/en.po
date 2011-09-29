@@ -1,3 +1,5 @@
+#titles
+
 msgid "Coaching Preview"
 msgstr "Coaching Preview"
 
@@ -9,6 +11,57 @@ msgstr "Visible types"
 
 msgid "Invisible types"
 msgstr "Invisible types"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Events"
+msgstr "Events"
+
+msgid "Properties"
+msgstr "Properties"
+
+msgid "Code"
+msgstr "Code"
+
+# button labels
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Generate"
+msgstr "Generate"
+
+msgid "Convert"
+msgstr "Convert"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "Add"
+msgstr "Add"
+
+msgid "Remove"
+msgstr "Remove"
+
+msgid "Add another"
+msgstr "Add another"
+
+# messages
+
+msgid "Please select the object type."
+msgstr "Please select the object type."
+
+msgid "Please press the preview button."
+msgstr "Please press the preview button."
+
+msgid "No further configuration necessary."
+msgstr "No further configuration necessary."
+
+msgid "Configuration is disabled for the conversion mode."
+msgstr "Configuration is disabled for the conversion mode."
+
+# fields
 
 msgid "Type"
 msgstr "Type"
@@ -24,9 +77,6 @@ msgstr "Description"
 
 msgid "URL"
 msgstr "URL"
-
-msgid "Properties"
-msgstr "Properties"
 
 msgid "Value"
 msgstr "Value"
@@ -55,6 +105,9 @@ msgstr "Height"
 msgid "(reference)"
 msgstr "(reference)"
 
+msgid "Criterion"
+msgstr "Criterion"
+
 msgid "Items"
 msgstr "Items"
 
@@ -64,69 +117,57 @@ msgstr "Count"
 msgid "Link"
 msgstr "Link"
 
-msgid "Remove"
-msgstr "Remove"
+# event types
 
-msgid "Add another"
-msgstr "Add another"
+msgid "Slide"
+msgstr "Slide"
 
-msgid "Add"
-msgstr "Add"
+msgid "Hide"
+msgstr "Hide"
 
-msgid "Preview"
-msgstr "Preview"
+msgid "Show"
+msgstr "Show"
 
-msgid "Convert"
-msgstr "Convert"
+msgid "Clear slide"
+msgstr "Clear slide"
 
-# messages
-
-msgid "Please select the object type."
-msgstr "Please select the object type."
-
-msgid "Please press the preview button."
-msgstr "Please press the preview button."
-
-msgid "No further configuration necessary."
-msgstr "No further configuration necessary."
-
-# types
+# object types
 
 msgid "BulletPoints"
-msgstr "BulletPoints"
+msgstr "Bullet points"
 
 msgid "Checkboxes"
 msgstr "Checkboxes"
 
 msgid "DieterCategory"
-msgstr "DieterCategory"
+msgstr "Dieter category"
 
 msgid "DocumentDownload"
-msgstr "DocumentDownload"
+msgstr "Document download"
 
 msgid "Dropdown"
 msgstr "Dropdown"
 
 msgid "EnergyDemand"
-msgstr "EnergyDemand"
+msgstr "Energy demand"
 
 msgid "Evaluation"
 msgstr "Evaluation"
 
 msgid "ImageStack"
-msgstr "ImageStack"
+msgstr "Image stack"
 
 msgid "Keywords"
 msgstr "Keywords"
 
 msgid "LinkGroup"
-msgstr "LinkGroup"
+msgstr "Link group"
 
 msgid "List"
 msgstr "List"
 
 msgid "ListView"
-msgstr "ListView"
+msgstr "List view"
 
 msgid "Options"
 msgstr "Options"
@@ -135,16 +176,16 @@ msgid "Text"
 msgstr "Text"
 
 msgid "TextArea"
-msgstr "TextArea"
+msgstr "Text area"
 
 msgid "TextInput"
-msgstr "TextInput"
+msgstr "Text input"
 
 msgid "Video"
 msgstr "Video"
 
 msgid "AddValue"
-msgstr "AddValue"
+msgstr "Add value"
 
 msgid "Buy"
 msgstr "Buy"
@@ -159,16 +200,7 @@ msgid "Register"
 msgstr "Register"
 
 msgid "SetValue"
-msgstr "SetValue"
-
-msgid "Code"
-msgstr "Code"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "Modeling Tool"
-msgstr "Modeling Tool"
+msgstr "Set value"
 
 # TextInput types
 
@@ -191,7 +223,7 @@ msgid "Age (3-100)"
 msgstr "Age (3-100)"
 
 msgid "User Age (18-100)"
-msgstr "User Age (18-100)"
+msgstr "User age (18-100)"
 
 msgid "E-Mail Address (?@?.?)"
-msgstr "E-Mail Address (?@?.?)"
+msgstr "E-Mail address (?@?.?)"
