@@ -138,14 +138,14 @@ function Generator(id) {
 	
 	self.observeCustomElements = function() {
 		self.object.properties = {};
-		$('#' + self.id + ' .configuration .list-item[rel^="{"]').filter(':visible').each(function(i, row) {
+		$('#' + self.id + ' .configuration .list-item[title^="{"]').filter(':visible').each(function(i, row) {
 			var elements = $(row).find(':input');
 			var values = [];
 			elements.each(function(j, element) {
 				values.push($(element).val());
 			});
 			try {
-				var extension = $.evalJSON($.vsprintf($(row).attr('rel'), values));
+				var extension = $.evalJSON($.vsprintf($(row).attr('title'), values));
 				elements.each(function(j, element) {
 					$(element).removeClass('error');
 				});
