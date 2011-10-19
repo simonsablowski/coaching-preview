@@ -27,8 +27,15 @@
 							</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>
+							<td>
+								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+							</td>
+						</tr>
+					</tfoot>
 					<tbody class="list">
-						<tr class="list-item" rel='{"values":["%s"]}'>
+						<tr class="list-item" title='{"values":["%s"]}'>
 							<td>
 								<input type="text" value=""/>
 							</td>
@@ -37,13 +44,6 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</td>
-						</tr>
-					</tfoot>
 				</table>
 			</div>
 			<div id="BulletPoints">
@@ -63,8 +63,15 @@
 							</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>
+							<td>
+								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+							</td>
+						</tr>
+					</tfoot>
 					<tbody class="list">
-						<tr class="list-item" rel='{"elements":[{"element":"%s","second":%d}]}'>
+						<tr class="list-item" title='{"elements":[{"element":"%s","second":%d}]}'>
 							<td>
 								<input type="text" value=""/>
 							</td>
@@ -76,19 +83,12 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</td>
-						</tr>
-					</tfoot>
 				</table>
 			</div>
 			<div id="Buy" class="invisible">
 				<table class="options">
 					<tbody class="list">
-						<tr class="list-item" rel='{"key":"%s"}'>
+						<tr class="list-item" title='{"key":"%s"}'>
 							<td>
 								<?php echo $this->localize('Key'); ?>
 
@@ -103,7 +103,7 @@
 			<div id="Coaching" class="invisible">
 				<table class="options">
 					<tbody class="list">
-						<tr class="list-item" rel='{"key":"%s"}'>
+						<tr class="list-item" title='{"key":"%s"}'>
 							<td>
 								<?php echo $this->localize('Key'); ?>
 
@@ -128,8 +128,15 @@
 							</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>
+							<td>
+								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+							</td>
+						</tr>
+					</tfoot>
 					<tbody class="list">
-						<tr class="list-item" rel='{"items":["%s"]}'>
+						<tr class="list-item" title='{"items":["%s"]}'>
 							<td>
 								<input type="text" value=""/>
 							</td>
@@ -138,13 +145,6 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</td>
-						</tr>
-					</tfoot>
 				</table>
 			</div>
 			<div id="DieterCategory">
@@ -170,8 +170,15 @@
 							</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>
+							<td>
+								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+							</td>
+						</tr>
+					</tfoot>
 					<tbody class="list">
-						<tr class="list-item" rel='{"documents":[{"name":"%s","file":"%s"}]}'>
+						<tr class="list-item" title='{"documents":[{"name":"%s","file":"%s"}]}'>
 							<td>
 								<input type="text" value=""/>
 							</td>
@@ -183,13 +190,6 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</td>
-						</tr>
-					</tfoot>
 				</table>
 			</div>
 			<div id="Dropdown">
@@ -205,8 +205,15 @@
 							</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>
+							<td>
+								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+							</td>
+						</tr>
+					</tfoot>
 					<tbody class="list">
-						<tr class="list-item" rel='{"items":["%s"]}'>
+						<tr class="list-item" title='{"items":["%s"]}'>
 							<td>
 								<input type="text" value=""/>
 							</td>
@@ -215,19 +222,12 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</td>
-						</tr>
-					</tfoot>
 				</table>
 			</div>
 			<div id="EnergyDemand">
 				<table class="options">
 					<tbody class="list">
-						<tr class="list-item" rel='{"weight":"#%s","height":"#%s"}'>
+						<tr class="list-item" title='{"weight":"#%s","height":"#%s"}'>
 							<td>
 								<?php echo $this->localize('Weight'); ?> <em><?php echo $this->localize('(reference)'); ?></em>
 							</td>
@@ -235,7 +235,7 @@
 								<input type="text" value=""/>
 							</td>
 						</tr>
-						<tr class="list-item" rel='{"weight":"#%s","height":"#%s"}'>
+						<tr class="list-item" title='{"weight":"#%s","height":"#%s"}'>
 							<td>
 								<?php echo $this->localize('Height'); ?> <em><?php echo $this->localize('(reference)'); ?></em>
 							</td>
@@ -266,8 +266,15 @@
 							</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>
+							<td>
+								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+							</td>
+						</tr>
+					</tfoot>
 					<tbody class="list">
-						<tr class="list-item" rel='{"weightedcriteria":[{"name":"%s","weightFactor":%d}],"type":"%s","steps":%d}'>
+						<tr class="list-item" title='{"weightedcriteria":[{"name":"%s","weightFactor":%d}],"type":"%s","steps":%d}'>
 							<td>
 								<input type="text" value=""/>
 							</td>
@@ -279,20 +286,13 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</td>
-						</tr>
-					</tfoot>
 				</table>
 			</div>
 			<!-- end: TODO -->
 			<div id="Group" class="invisible">
 				<table class="options">
 					<tbody class="list">
-						<tr class="list-item" rel='{"count":%d}'>
+						<tr class="list-item" title='{"count":%d}'>
 							<td>
 								<?php echo $this->localize('Count'); ?>
 
@@ -321,8 +321,15 @@
 							</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>
+							<td>
+								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+							</td>
+						</tr>
+					</tfoot>
 					<tbody class="list">
-						<tr class="list-item" rel='{"elements":[{"element":"%s","second":%d}]}'>
+						<tr class="list-item" title='{"elements":[{"element":"%s","second":%d}]}'>
 							<td>
 								<input type="text" value=""/>
 							</td>
@@ -334,13 +341,6 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</td>
-						</tr>
-					</tfoot>
 				</table>
 			</div>
 			<div id="Keywords">
@@ -360,8 +360,15 @@
 							</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>
+							<td>
+								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+							</td>
+						</tr>
+					</tfoot>
 					<tbody class="list">
-						<tr class="list-item" rel='{"elements":[{"element":"%s","second":%d}]}'>
+						<tr class="list-item" title='{"elements":[{"element":"%s","second":%d}]}'>
 							<td>
 								<input type="text" value=""/>
 							</td>
@@ -373,13 +380,6 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</td>
-						</tr>
-					</tfoot>
 				</table>
 			</div>
 			<div id="LinkGroup">
@@ -399,8 +399,15 @@
 							</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>
+							<td>
+								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+							</td>
+						</tr>
+					</tfoot>
 					<tbody class="list">
-						<tr class="list-item" rel='{"links":[{"name":"%s","link":"%s"}]}'>
+						<tr class="list-item" title='{"links":[{"name":"%s","link":"%s"}]}'>
 							<td>
 								<input type="text" value=""/>
 							</td>
@@ -412,19 +419,12 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</td>
-						</tr>
-					</tfoot>
 				</table>
 			</div>
 			<div id="List">
 				<table class="options">
 					<tbody class="list">
-						<tr class="list-item" rel='{"items":%d}'>
+						<tr class="list-item" title='{"items":%d}'>
 							<td>
 								<?php echo $this->localize('Items'); ?>
 
@@ -454,8 +454,15 @@
 							</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>
+							<td>
+								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+							</td>
+						</tr>
+					</tfoot>
 					<tbody class="list">
-						<tr class="list-item" rel='{"elements":[{"element":"%s","second":%d}]}'>
+						<tr class="list-item" title='{"elements":[{"element":"%s","second":%d}]}'>
 							<td>
 								<input type="text" value=""/>
 							</td>
@@ -467,13 +474,6 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</td>
-						</tr>
-					</tfoot>
 				</table>
 			</div>
 			<!-- end: TODO -->
@@ -502,8 +502,15 @@
 							</th>
 						</tr>
 					</thead>
+					<tfoot>
+						<tr>
+							<td>
+								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+							</td>
+						</tr>
+					</tfoot>
 					<tbody class="list">
-						<tr class="list-item" rel='{"values":["%s"]}'>
+						<tr class="list-item" title='{"values":["%s"]}'>
 							<td>
 								<input type="text" value=""/>
 							</td>
@@ -512,13 +519,6 @@
 							</td>
 						</tr>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>
-								<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-							</td>
-						</tr>
-					</tfoot>
 				</table>
 			</div>
 			<div id="Text">
@@ -536,7 +536,7 @@
 			<div id="TextInput">
 				<table class="options">
 					<tbody class="list">
-						<tr class="list-item" rel='{"type":"%s"}'>
+						<tr class="list-item" title='{"type":"%s"}'>
 							<td>
 								<?php echo $this->localize('Type'); ?>
 
@@ -579,13 +579,16 @@
 
 			<input type="button" class="test disabled button" disabled="disabled" value="<?php echo $this->localize('Preview'); ?>"/>
 		</h1>
+		<p>
+			<?php echo $this->localize('Skin'); ?>: <input type="text" class="skin" value="motivado"/>
+		</p>
 		<div id="column1" class="column">
 			<fieldset>
 				<!--<legend>
 					<?php echo $this->localize('Configuration'); ?>
 
 				</legend>-->
-				<form>
+				<form action="#">
 					<dl>
 						<dt>
 							<?php echo $this->localize('Type'); ?>
@@ -645,7 +648,7 @@
 							<input type="checkbox" class="enable disabled checkbox" disabled="disabled"/>
 						</dt>
 						<dd style="display: none;">
-							<textarea class="description"></textarea>
+							<textarea class="description" cols="10" rows="10"></textarea>
 						</dd>
 					</dl>
 					<dl class="configuration separate">
@@ -657,7 +660,7 @@
 						<dd style="display: none;">
 							<table class="options">
 								<tbody class="list">
-									<tr class="list-item" rel='{"video":{"url":"%s"}}'>
+									<tr class="list-item" title='{"video":{"url":"%s"}}'>
 										<td>
 											<?php echo $this->localize('URL'); ?>
 
@@ -695,8 +698,15 @@
 										</th>
 									</tr>
 								</thead>
+								<tfoot>
+									<tr>
+										<td>
+											<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
+										</td>
+									</tr>
+								</tfoot>
 								<tbody class="list many">
-									<tr class="list-item" rel='{"events":[{"type":"%s","second":%d,"url":"%s"}]}'>
+									<tr class="list-item" title='{"events":[{"type":"%s","second":%d,"url":"%s"}]}'>
 										<td>
 											<select>
 												<option value="slide"><?php echo $this->localize('Slide'); ?></option>
@@ -716,13 +726,6 @@
 										</td>
 									</tr>
 								</tbody>
-								<tfoot>
-									<tr>
-										<td>
-											<a class="add" href="#" title="<?php echo $this->localize('Add another'); ?>"><?php echo $this->localize('Add'); ?></a>
-										</td>
-									</tr>
-								</tfoot>
 							</table>
 						</dd>
 						<dt class="separate">
@@ -738,14 +741,14 @@
 						<input type="button" class="generate disabled button" disabled="disabled" value="<?php echo $this->localize('Generate'); ?>"/>
 					</p>
 				</form>
-				<form>
+				<form action="#">
 					<dl class="separate">
 						<dt>
 							<?php echo $this->localize('Code'); ?>
 
 						</dt>
 						<dd>
-								<textarea class="code"></textarea>
+								<textarea class="code" cols="10" rows="10"></textarea>
 						</dd>
 					</dl>
 					<p>

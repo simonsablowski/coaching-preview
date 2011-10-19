@@ -3,20 +3,21 @@ function MotivadoPlayer(config) {
 		return alert('Missing required parameters!');
 	}
 	
+	var flashvars = config;
+	flashvars.baseServiceUrl = config.baseServiceUrl;
+	flashvars.baseVideoUrl = config.baseVideoUrl || config.baseServiceUrl + 'videos/';
+	flashvars.baseAssetUrl = config.baseAssetUrl || config.baseServiceUrl + 'assets/';
+	flashvars.skin = config.skin || undefined;
+	flashvars.autoPlay = config.autoPlay || 'true';
+	flashvars.debugMode = config.debugMode || 'false';
+	flashvars.localMode = config.localMode || 'false';
+	flashvars.objectSequence = config.objectSequence || undefined;
+	
 	jQuery('#' + (config.element || 'MotivadoPlayer')).flash({
 		swf: (config.basePlayerUrl || config.baseServiceUrl + 'player/') + (config.player || 'CoachingPlayer.swf'),
 		width: config.width || 960,
 		height: config.height || 350,
-		flashvars: {
-			product: config.product,
-			baseServiceUrl: config.baseServiceUrl,
-			baseVideoUrl: config.baseVideoUrl || config.baseServiceUrl + 'videos/',
-			baseAssetUrl: config.baseAssetUrl || config.baseServiceUrl + 'player/assets/',
-			autoPlay: config.autoPlay || 'true',
-			debugMode: config.debugMode || 'false',
-			localMode: config.localMode || 'false',
-			objectSequence: config.objectSequence || undefined
-		}
+		flashvars: flashvars
 	});
 }
 
